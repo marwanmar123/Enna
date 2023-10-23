@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-@await Component.InvokeAsync("Navbar")
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
 
@@ -11,7 +11,7 @@
             <div class="col-xl-6">
                 <h1>Bettter digital experience with Presento</h1>
                 <h2>We are team of talented designers making websites with Bootstrap</h2>
-                <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                <a href="/registrations/create" class="btn-get-started scrollto">Je m'inscris</a>
                 <button type="button" class="btn-contact scrollto">Contact</button>
             </div>
         </div>
@@ -23,7 +23,7 @@
 <main id="main">
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    @* <section id="clients" class="clients">
         <div class="container" data-aos="zoom-in">
 
             <div class="clients-slider swiper">
@@ -41,9 +41,9 @@
             </div>
 
         </div>
-    </section><!-- End Clients Section -->
+    </section> *@<!-- End Clients Section -->
     <!-- ======= About Section ======= -->
-    <section id="about" class="about section-bg">
+    @* <section id="about" class="about section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="row no-gutters">
@@ -85,7 +85,7 @@
             </div>
 
         </div>
-    </section><!-- End About Section -->
+    </section> *@<!-- End About Section -->
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
         <div class="container" data-aos="fade-up">
@@ -129,7 +129,7 @@
         </div>
     </section><!-- End Counts Section -->
     <!-- ======= Tabs Section ======= -->
-    <section id="tabs" class="tabs">
+@*     <section id="tabs" class="tabs">
         <div class="container" data-aos="fade-up">
 
             <ul class="nav nav-tabs row d-flex">
@@ -260,13 +260,13 @@
             </div>
 
         </div>
-    </section><!-- End Tabs Section -->
+    </section> *@<!-- End Tabs Section -->
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg ">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Services</h2>
+                <h2>Notre Missions</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
             </div>
 
@@ -318,7 +318,7 @@
         </div>
     </section><!-- End Services Section -->
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    @* <section id="portfolio" class="portfolio">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -468,9 +468,9 @@
             </div>
 
         </div>
-    </section><!-- End Portfolio Section -->
+    </section> *@<!-- End Portfolio Section -->
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    @* <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>Testimonials</h2>
@@ -781,7 +781,7 @@
             </div>
 
         </div>
-    </section><!-- End Team Section -->
+    </section> *@<!-- End Team Section -->
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
@@ -822,7 +822,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form role="form" class="php-email-form">
                         <div class="row">
                             <div class="col form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -853,80 +853,24 @@
 
 </main><!-- End #main -->
 <!-- ======= Footer ======= -->
-<footer id="footer">
-
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Presento<span>.</span></h3>
-                    <p>
-                        A108 Adam Street <br>
-                        New York, NY 535022<br>
-                        United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
-                    </p>
-                </div>
-
-                <div class="col-lg-2 col-md-6 footer-links">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-                    <form action="" method="post">
-                        <input type="email" name="email"><input type="submit" value="Subscribe">
-                    </form>
-                </div>
-
-            </div>
+<div id="footer" class="footer">
+    <div class="container text-white">
+        <div class="footer-brand">
+            <div><img src="~/assets/img/logo.png" alt="Logo" width="20%"></div>
         </div>
+        <p>
+            &copy; Tous les droits réservés 2023 <br />
+            <a href="#" class="text-white">École Numérique Ahmed AL HANSSALI</a>
+        </p>
+        <p class="social-list">
+            <a href="#"><i class="fab fa-facebook-f fa-fw text-white"></i></a>
+            <a href="#"><i class="fab fa-instagram fa-fw text-white"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-fw text-white"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g fa-fw text-white"></i></a>
+            <a href="#"><i class="fab fa-dribbble fa-fw text-white"></i></a>
+        </p>
     </div>
-
-    <div class="container d-md-flex py-4">
-
-        <div class="me-md-auto text-center text-md-start">
-            <div class="copyright">
-                &copy; Copyright <strong><span>Presento</span></strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/presento-bootstrap-corporate-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-        <div class="social-links text-center text-md-end pt-3 pt-md-0">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
-    </div>
-</footer><!-- End Footer -->
+</div><!-- End Footer -->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

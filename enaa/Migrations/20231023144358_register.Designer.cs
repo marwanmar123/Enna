@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using enaa.Data;
 
@@ -11,9 +12,11 @@ using enaa.Data;
 namespace enaa.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231023144358_register")]
+    partial class register
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -205,11 +208,11 @@ namespace enaa.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("Age")
-                        .HasColumnType("int");
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("AnneeDiplome")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("AnneeDiplome")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AutreFiliereAcad")
                         .HasColumnType("nvarchar(max)");
@@ -217,11 +220,11 @@ namespace enaa.Migrations
                     b.Property<string>("BrancheBac")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DateDeN")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DateDeN")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("DernierDip")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DernierDip")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -229,13 +232,13 @@ namespace enaa.Migrations
                     b.Property<string>("Etablissement")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Experience")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool?>("Experience")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FiliereAcad")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("FormationName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NiveauAcad")
@@ -244,8 +247,8 @@ namespace enaa.Migrations
                     b.Property<string>("Nom")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Phone")
-                        .HasColumnType("int");
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(max)");

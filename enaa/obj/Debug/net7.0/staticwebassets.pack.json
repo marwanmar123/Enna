@@ -613,6 +613,34 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\dashboard.png",
+      "PackagePath": "staticwebassets\\img\\dashboard.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\delete.png",
+      "PackagePath": "staticwebassets\\img\\delete.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\doc.png",
+      "PackagePath": "staticwebassets\\img\\doc.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\edit.png",
+      "PackagePath": "staticwebassets\\img\\edit.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\menu.png",
+      "PackagePath": "staticwebassets\\img\\menu.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\img\\save.png",
+      "PackagePath": "staticwebassets\\img\\save.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

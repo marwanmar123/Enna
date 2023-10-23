@@ -57,8 +57,8 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #e65d5f;
-  color: #fff;
+  background: #fff;
+  color: black;
 }
 
 .back-to-top.active {
@@ -522,16 +522,16 @@ section {
   position: relative;
 }
 
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: #e03a3c;
-  bottom: 0;
-  left: calc(50% - 25px);
-}
+    .section-title h2::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: #9CC844;
+        bottom: 0;
+        left: calc(50% - 25px);
+    }
 
 .section-title p {
   margin-bottom: 0;
@@ -857,12 +857,12 @@ section {
   background: #2b2b2b;
 }
 
-.services .icon-box i {
-  float: left;
-  color: #e03a3c;
-  font-size: 40px;
-  line-height: 0;
-}
+    .services .icon-box i {
+        float: left;
+        color: #9CC844;
+        font-size: 40px;
+        line-height: 0;
+    }
 
 .services .icon-box h4 {
   margin-left: 70px;
@@ -1403,13 +1403,13 @@ section {
   border-radius: 4px;
 }
 
-.contact .info-box i {
-  font-size: 32px;
-  color: #1b675a;
-  border-radius: 50%;
-  padding: 8px;
-  border: 2px dotted #f8d4d5;
-}
+    .contact .info-box i {
+        font-size: 32px;
+        color: #1b675a;
+        border-radius: 50%;
+        padding: 8px;
+        border: 2px dotted #9CC844;
+    }
 
 .contact .info-box h3 {
   font-size: 20px;
@@ -1426,9 +1426,10 @@ section {
 }
 
 .contact .php-email-form {
-  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
-  padding: 30px;
-  border-radius: 4px;
+    box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+    padding: 30px;
+    border-radius: 4px;
+    height: 25.6em;
 }
 
 .contact .php-email-form .error-message {
@@ -2031,6 +2032,14 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
+    padding: 60px 0;
+    background: #1B675A;
+    text-align: center;
+    color: rgba(255,255,255,.5);
+    font-size: .8125rem;
+    box-shadow: inset 0 100px 80px -80px rgba(0,0,0,.7);
+}
+    /*#footer {
   color: #fff;
   font-size: 14px;
   background: #111111;
@@ -2189,10 +2198,12 @@ section {
   background: #1b675a;
   color: #fff;
   text-decoration: none;
-}
+}*/
+    /*------------------------------------
+    Dahsboard 
 
-/* Dahsboard */
-.wrapper {
+-------------------------------------*/
+    .wrapper {
   display: flex;
   width: 100%;
   align-items: stretch;
@@ -2266,3 +2277,180 @@ ul ul a {
   min-height: 100vh;
   transition: all 0.3s;
 }
+
+/*---------------------------------
+ inscription
+-----------------------------------*/
+.section-multisteps-form {
+  border-radius: 1em;
+  background: #f8f6f6;
+}
+
+.content__title {
+  margin-bottom: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.content__title--m-sm {
+  margin-bottom: 10px;
+}
+
+.multisteps-form__progress {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+.multisteps-form_btn {
+  background-color: transparent;
+  color: #1b675a;
+  border: 2px solid #1b675a;
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+.multisteps-form_btn:hover {
+  background-color: #1b675a;
+  color: #fff;
+  border: 2px solid #1b675a;
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+.multisteps-form__progress-btn {
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  position: relative;
+  padding-top: 20px;
+  color: rgba(108, 117, 125, 0.7);
+  text-indent: -9999px;
+  border: none;
+  background-color: transparent;
+  outline: none !important;
+  cursor: pointer;
+}
+@media (min-width: 500px) {
+  .multisteps-form__progress-btn {
+    text-indent: 0;
+  }
+}
+.multisteps-form__progress-btn:before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 13px;
+  height: 13px;
+  content: "";
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: all 0.15s linear 0s,
+    -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s,
+    transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  transition: all 0.15s linear 0s,
+    transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s,
+    -webkit-transform 0.15s cubic-bezier(0.05, 1.09, 0.16, 1.4) 0s;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background-color: #fff;
+  box-sizing: border-box;
+  z-index: 3;
+}
+.multisteps-form__progress-btn:after {
+  position: absolute;
+  top: 5px;
+  left: calc(-50% - 13px / 2);
+  transition-property: all;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  display: block;
+  width: 100%;
+  height: 2px;
+  content: "";
+  background-color: currentColor;
+  z-index: 1;
+}
+.multisteps-form__progress-btn:first-child:after {
+  display: none;
+}
+.multisteps-form__progress-btn.js-active {
+  color: #1b675a;
+}
+.multisteps-form__progress-btn.js-active:before {
+  -webkit-transform: translateX(-50%) scale(1.2);
+  transform: translateX(-50%) scale(1.2);
+  background-color: currentColor;
+}
+
+.multisteps-form__form {
+  position: relative;
+}
+
+.multisteps-form__panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.multisteps-form__panel.js-active {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+.multisteps-form__panel[data-animation="scaleOut"] {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.multisteps-form__panel[data-animation="scaleOut"].js-active {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.multisteps-form__panel[data-animation="slideHorz"] {
+  left: 50px;
+}
+.multisteps-form__panel[data-animation="slideHorz"].js-active {
+  transition-property: all;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.2, 1.13, 0.38, 1.43);
+  transition-delay: 0s;
+  left: 0;
+}
+.multisteps-form__panel[data-animation="slideVert"] {
+  top: 30px;
+}
+.multisteps-form__panel[data-animation="slideVert"].js-active {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  top: 0;
+}
+.multisteps-form__panel[data-animation="fadeIn"].js-active {
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+}
+.multisteps-form__panel[data-animation="scaleIn"] {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.multisteps-form__panel[data-animation="scaleIn"].js-active {
+  transition-property: all;
+  transition-duration: 0.2s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+/*---------------------------------
+ inscription
+-----------------------------------*/

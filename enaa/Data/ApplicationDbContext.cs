@@ -12,5 +12,6 @@ namespace enaa.Data
         }
         public DbSet<enaa.Models.Menu> Menu { get; set; } = default!;
         public DbSet<enaa.Models.HomeNav> HomeNav { get; set; } = default!;
+        public DbSet<enaa.Models.Registration> Registration { get; set; } = default!;
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using enaa.Data;
 using enaa.Models;
 using enaa.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 
 namespace enaa.Controllers
 {
@@ -36,7 +37,7 @@ namespace enaa.Controllers
             return View(Nav);
         }
 
-
+        [Authorize(Roles = "Admin")]
         // GET: Menus/Create
         public IActionResult Create()
         {
@@ -60,6 +61,7 @@ namespace enaa.Controllers
             return View(menu);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Menus/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -111,6 +113,7 @@ namespace enaa.Controllers
             return View(menu);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Menus/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -158,6 +161,7 @@ namespace enaa.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateHomeNav([Bind("Id,BgNav,LogoSize")] HomeNav home)
@@ -171,6 +175,7 @@ namespace enaa.Controllers
             return View(home);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> EditHomeNav(string id)
         {
             if (id == null || _context.HomeNav == null)
@@ -186,7 +191,7 @@ namespace enaa.Controllers
             return View(home);
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditHomeNav(string id, [Bind("Id,BgNav,LogoSize")] HomeNav home)

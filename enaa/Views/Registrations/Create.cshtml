@@ -1,0 +1,463 @@
+﻿@model enaa.Models.Registration
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="w-75 section-multisteps-form" style="margin:9em auto">
+    <div class="content">
+      <!--content inner-->
+      <div class="content__inner">
+        <div class="container overflow-hidden">
+          <!--multisteps-form-->
+          <div class="multisteps-form">
+            <!--progress bar-->
+            <div class="row">
+              <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                <div class="multisteps-form__progress">
+                  <button
+                    class="multisteps-form__progress-btn js-active"
+                    type="button"
+                    title="User Info"
+                  >
+                    Infos perso
+                  </button>
+                  <button
+                    class="multisteps-form__progress-btn"
+                    type="button"
+                    title="Address"
+                  >
+                  Parcours académique
+                  </button>
+                  <button
+                    class="multisteps-form__progress-btn"
+                    type="button"
+                    title="Order Info"
+                  >
+                  Expérience
+                  </button>
+                  <button
+                    class="multisteps-form__progress-btn"
+                    type="button"
+                    title="Comments"
+                  >
+                    Comments
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--form panels-->
+            <div class="row">
+              <div class="col-12 col-lg-8 m-auto">
+                <form class="multisteps-form__form" asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                  <!--single form panel-->
+                  <div
+                    class="multisteps-form__panel p-4 rounded bg-white js-active"
+                    data-animation="slideHorz"
+                  >
+                    <h3 class="multisteps-form__title">Informations personnelles</h3>
+                    <div class="multisteps-form__content">
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                       <div class="form-group w-50 mr-2">
+                            <label asp-for="Nom" class="control-label"></label>
+                            <input asp-for="Nom" class="form-control" />
+                            <span asp-validation-for="Nom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group w-50">
+                            <label asp-for="Prenom" class="control-label"></label>
+                            <input asp-for="Prenom" class="form-control" />
+                            <span asp-validation-for="Prenom" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="w-75 m-auto d-flex flex-row justify-content-center text-center">
+                        <div class="form-check">
+                            <input type="checkbox" asp-for="Genre" value="Homme" class="form-check-input" />
+                            <label asp-for="Genre" class="form-check-label">Homme</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" asp-for="Genre" value="Femme" class="form-check-input" />
+                            <label asp-for="Genre" class="form-check-label">Femme</label>
+                        </div>
+                      </div>
+                        
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                        <div class="form-group w-50 mr-2">
+                            <label asp-for="Age" class="control-label"></label>
+                            <input type="number" asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                        <div class="form-group w-50">
+                            <label asp-for="Ville" class="control-label"></label>
+                            <input asp-for="Ville" class="form-control" />
+                            <span asp-validation-for="Ville" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                        <div class="form-group w-50 mr-2">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input type="email" asp-for="Email" class="form-control" />
+                        @* <p style="color:green;">@TempData["emailSuccess"]</p> *@
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                     </div>
+                    <div class="form-group w-50">
+                        <label asp-for="Phone" class="control-label"></label>
+                        <input type="number" asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                      </div>
+                     <div class="form-group w-75 m-auto">
+                        <label asp-for="DateDeN" class="control-label"></label>
+                        <input type="date" asp-for="DateDeN" class="form-control" />
+                        <span asp-validation-for="DateDeN" class="text-danger"></span>
+                     </div>
+                      <div class="button-row d-flex mt-4">
+                        <button
+                          class="multisteps-form_btn ml-auto js-btn-next"
+                          type="button"
+                          title="Next"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--single form panel-->
+                  <div
+                    class="multisteps-form__panel p-4 rounded bg-white"
+                    data-animation="slideHorz"
+                  >
+                    <h3 class="multisteps-form__title">Parcours académique</h3>
+                    <div class="multisteps-form__content">
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                        <div class="form-group w-50 mr-2">
+                            <label asp-for="BrancheBac" class="control-label"></label>
+                            <input asp-for="BrancheBac" class="form-control" />
+                            <span asp-validation-for="BrancheBac" class="text-danger"></span>
+                        </div>
+                        <div class="form-group w-50">
+                            <label asp-for="NiveauAcad" class="control-label"></label>
+                            <input asp-for="NiveauAcad" class="form-control" />
+                            <span asp-validation-for="NiveauAcad" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                        <div class="form-group w-50 mr-2">
+                            <label asp-for="FiliereAcad" class="control-label"></label>
+                            <input asp-for="FiliereAcad" class="form-control" />
+                            <span asp-validation-for="FiliereAcad" class="text-danger"></span>
+                        </div>
+                        <div class="form-group w-50">
+                            <label asp-for="AutreFiliereAcad" class="control-label"></label>
+                            <input asp-for="AutreFiliereAcad" class="form-control" />
+                            <span asp-validation-for="AutreFiliereAcad" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="m-auto d-flex flex-row justify-content-around">
+                        <div class="form-group w-50 mr-2">
+                            <label asp-for="DernierDip" class="control-label"></label>
+                            <input asp-for="DernierDip" class="form-control" />
+                            <span asp-validation-for="DernierDip" class="text-danger"></span>
+                        </div>
+                        <div class="form-group w-50">
+                            <label asp-for="Etablissement" class="control-label"></label>
+                            <input asp-for="Etablissement" class="form-control" />
+                            <span asp-validation-for="Etablissement" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="m-auto d-flex flex-row justify-content-center">
+                        <div class="form-group w-75">
+                            <label asp-for="AnneeDiplome" class="control-label"></label>
+                            <input type="date" asp-for="AnneeDiplome" class="form-control" />
+                            <span asp-validation-for="AnneeDiplome" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button
+                          class="multisteps-form_btn js-btn-prev"
+                          type="button"
+                          title="Prev"
+                        >
+                          Prev
+                        </button>
+                        <button
+                          class="multisteps-form_btn ml-auto js-btn-next"
+                          type="button"
+                          title="Next"
+                        >
+                          Next
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <!--single form panel-->
+                  <div
+                    class="multisteps-form__panel  p-4 rounded bg-white"
+                    data-animation="slideHorz"
+                  >
+                    <h3 class="multisteps-form__title">Expérience</h3>
+                    <div class="multisteps-form__content">
+                      <div class="w-75 m-auto d-flex flex-row justify-content-center text-center">
+                          <div class="form-check">
+                              <input type="checkbox" asp-for="Experience" value="Oui" class="form-check-input" />
+                            <label asp-for="Experience" class="form-check-label">Oui</label>
+                          </div>
+                          <div class="form-check">
+                            <input type="checkbox" asp-for="Experience" value="Non" class="form-check-input" />
+                            <label asp-for="Experience" class="form-check-label">Non</label>
+                          </div>
+                      </div>
+                      <div class="m-auto d-flex flex-row justify-content-center pt-4">
+                        <div class="form-group w-75">
+                          <label class="control-label">Si oui, de combien d'années?</label>
+                          <input type="number" asp-for="SiOuiExperience" class="form-control" />
+                          <span asp-validation-for="SiOuiExperience" class="text-danger"></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="button-row d-flex mt-4 col-12">
+                          <button
+                            class="multisteps-form_btn js-btn-prev"
+                            type="button"
+                            title="Prev"
+                          >
+                            Prev
+                          </button>
+                          <button
+                            class="multisteps-form_btn ml-auto js-btn-next"
+                            type="button"
+                            title="Next"
+                          >
+                            Next
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--single form panel-->
+                  <div
+                    class="multisteps-form__panel p-4 rounded bg-white"
+                    data-animation="slideHorz"
+                  >
+                    <h3 class="multisteps-form__title">Comments</h3>
+                    <div class="multisteps-form__content">
+                      <div class="form-row mt-4">
+                        <textarea
+                          class="multisteps-form__textarea form-control"
+                          placeholder="Comments"
+                        ></textarea>
+                      </div>
+                      <div class="button-row d-flex mt-4">
+                        <button
+                          class="multisteps-form_btn js-btn-prev"
+                          type="button"
+                          title="Prev"
+                        >
+                          Prev
+                        </button>
+                        <button
+                          class="btn btn-success ml-auto"
+                          type="submit"
+                          title="Send"
+                        >
+                          Envoyer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+@*                 <p>@TempData["emailfake"]</p>*@
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!-- partial -->
+    <script>
+      //DOM elements
+      const DOMstrings = {
+        stepsBtnClass: "multisteps-form__progress-btn",
+        stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
+        stepsBar: document.querySelector(".multisteps-form__progress"),
+        stepsForm: document.querySelector(".multisteps-form__form"),
+        stepsFormTextareas: document.querySelectorAll(
+          ".multisteps-form__textarea"
+        ),
+        stepFormPanelClass: "multisteps-form__panel",
+        stepFormPanels: document.querySelectorAll(".multisteps-form__panel"),
+        stepPrevBtnClass: "js-btn-prev",
+        stepNextBtnClass: "js-btn-next",
+      };
+
+      //remove class from a set of items
+      const removeClasses = (elemSet, className) => {
+        elemSet.forEach((elem) => {
+          elem.classList.remove(className);
+        });
+      };
+
+      //return exect parent node of the element
+      const findParent = (elem, parentClass) => {
+        let currentNode = elem;
+
+        while (!currentNode.classList.contains(parentClass)) {
+          currentNode = currentNode.parentNode;
+        }
+
+        return currentNode;
+      };
+
+      //get active button step number
+      const getActiveStep = (elem) => {
+        return Array.from(DOMstrings.stepsBtns).indexOf(elem);
+      };
+
+      //set all steps before clicked (and clicked too) to active
+      const setActiveStep = (activeStepNum) => {
+        //remove active state from all the state
+        removeClasses(DOMstrings.stepsBtns, "js-active");
+
+        //set picked items to active
+        DOMstrings.stepsBtns.forEach((elem, index) => {
+          if (index <= activeStepNum) {
+            elem.classList.add("js-active");
+          }
+        });
+      };
+
+      //get active panel
+      const getActivePanel = () => {
+        let activePanel;
+
+        DOMstrings.stepFormPanels.forEach((elem) => {
+          if (elem.classList.contains("js-active")) {
+            activePanel = elem;
+          }
+        });
+
+        return activePanel;
+      };
+
+      //open active panel (and close unactive panels)
+      const setActivePanel = (activePanelNum) => {
+        //remove active class from all the panels
+        removeClasses(DOMstrings.stepFormPanels, "js-active");
+
+        //show active panel
+        DOMstrings.stepFormPanels.forEach((elem, index) => {
+          if (index === activePanelNum) {
+            elem.classList.add("js-active");
+
+            setFormHeight(elem);
+          }
+        });
+      };
+
+      //set form height equal to current panel height
+      const formHeight = (activePanel) => {
+        const activePanelHeight = activePanel.offsetHeight;
+
+        DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
+      };
+
+      const setFormHeight = () => {
+        const activePanel = getActivePanel();
+
+        formHeight(activePanel);
+      };
+
+      //STEPS BAR CLICK FUNCTION
+      DOMstrings.stepsBar.addEventListener("click", (e) => {
+        //check if click target is a step button
+        const eventTarget = e.target;
+
+        if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
+          return;
+        }
+
+        //get active button step number
+        const activeStep = getActiveStep(eventTarget);
+
+        //set all steps before clicked (and clicked too) to active
+        setActiveStep(activeStep);
+
+        //open active panel
+        setActivePanel(activeStep);
+      });
+
+      //PREV/NEXT BTNS CLICK
+      DOMstrings.stepsForm.addEventListener("click", (e) => {
+        const eventTarget = e.target;
+
+        //check if we clicked on `PREV` or NEXT` buttons
+        if (
+          !(
+            eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) ||
+            eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`)
+          )
+        ) {
+          return;
+        }
+
+        //find active panel
+        const activePanel = findParent(
+          eventTarget,
+          `${DOMstrings.stepFormPanelClass}`
+        );
+
+        let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(
+          activePanel
+        );
+
+        //set active step and active panel onclick
+        if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
+          activePanelNum--;
+        } else {
+          activePanelNum++;
+        }
+
+        setActiveStep(activePanelNum);
+        setActivePanel(activePanelNum);
+      });
+
+      //SETTING PROPER FORM HEIGHT ONLOAD
+      window.addEventListener("load", setFormHeight, false);
+
+      //SETTING PROPER FORM HEIGHT ONRESIZE
+      window.addEventListener("resize", setFormHeight, false);
+
+      //changing animation via animation select !!!YOU DON'T NEED THIS CODE (if you want to change animation type, just change form panels data-attr)
+
+      const setAnimationType = (newType) => {
+        DOMstrings.stepFormPanels.forEach((elem) => {
+          elem.dataset.animation = newType;
+        });
+      };
+
+      //selector onchange - changing animation
+      const animationSelect = document.querySelector(".pick-animation__select");
+
+      animationSelect.addEventListener("change", () => {
+        const newAnimationType = animationSelect.value;
+
+        setAnimationType(newAnimationType);
+      });
+    </script>
+
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script>
+    
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
