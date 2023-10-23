@@ -1,0 +1,84 @@
+﻿@model enaa.ViewModel.NavViewModel
+
+@{
+    Layout = "_LayoutDashboard";
+}
+
+<h1>Menu</h1>
+
+<button type="button" class="btn text-light m-2" title="Ajouter" style="background:#ce0033;" data-toggle="modal" data-target="#CreateMenu">
+    Ajouter
+</button>
+@await Html.PartialAsync("_CreateMenuPartialView", new Menu())
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                TitleMenu
+            </th>
+            <th>
+                Link
+            </th>
+            <th>Action</th>
+            <th>Color</th>
+            <th>Size</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Menu)
+        {
+            var size = string.Concat(item.Size, "px");
+            <tr>
+                <td>
+                    <p style="color:@item.Color; font-size:@size; font-weight:bold;">@item.TitleMenu</p>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Link)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Modifier</a> |*@
+                    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal"
+                    data-target="@("#EditMenu-"+item.Id)" data-url="@Url.Action($"Edit/{item.Id}")">
+                        <img src="~/img/edit.png">
+                    </button>
+                    @await Html.PartialAsync("_EditMenuPartialView",item)
+
+                    <button type="button" class="border-0 bg-transparent" title="Suprimer Element" data-toggle="modal"
+                    data-target="@("#DeleteMenu-"+item.Id)" data-url="@Url.Action($"Delete/{item.Id}")">
+                        <img src="~/img/delete.png">
+                    </button>
+                    @await Html.PartialAsync("_DeleteMenuPartialView",item)
+
+                    @*<button type="button" class="border-0 bg-transparent" title="Hide Element">
+                        <img src="~/img/hide.png">
+                        </button>*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h1>Change Logo & Background</h1>
+<button type="button" class="btn btn-primary m-2" title="Ajouter" data-toggle="modal" data-target="#CreateNav">
+    O
+    </button>
+@await Html.PartialAsync("_CreateNavPartialView", new HomeNav())
+
+@foreach (var item in Model.Home)
+{
+    <button type="button" class="border-0 bg-transparent" title="Modifier" data-toggle="modal"
+    data-target="@("#EditHome-"+item.Id)" data-url="@Url.Action($"EditHomeNav/{item.Id}")">
+        <img src="~/img/edit.png">
+    </button>
+    @await Html.PartialAsync("_EditNavPartialView",item)
+}
+
+

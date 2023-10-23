@@ -1,0 +1,54 @@
+﻿@model enaa.ViewModel.NavViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+    string? fullName = null;
+    if (SignInManager.IsSignedIn(User))
+    {
+        User user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        if (user != null)
+        {
+            fullName = user.FullName;
+        }
+    }
+}
+
+
+<!-- ======= Header ======= -->
+@foreach (var item in Model.Home)
+{
+var sizeLogo = string.Concat(item.LogoSize, "px");
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+        <h1 class="logo me-auto"><a href="index.html">
+            <img style="width:@sizeLogo;" src="~/assets/img/logo.png" />
+        </a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                @foreach (var n in Model.Menu)
+                {
+                    var size = string.Concat(n.Size, "px");
+                    <li><a class="nav-link scrollto active" href="@n.Link" style="color:@n.Color; font-size:@size; font-weight:bold;">@n.TitleMenu</a></li>
+                }
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+        <a href="#about" class="get-started-btn scrollto">Get Started</a>
+    </div>
+</header><!-- End Header -->
+}
+
+
+
+
+    
+
+    
+
+

@@ -1,0 +1,86 @@
+﻿@model List<enaa.ViewModel.ProfileViewModel>
+@{
+    ViewData["Title"] = "Manage Users";
+    Layout = "_LayoutDashboard";
+}
+    <h1>Utilisateurs</h1>
+    <a class="btn btn-success" asp-controller="Roles" asp-action="Excel">Export to Excel</a>
+<div class="container">
+    <div class="row w-100">
+        <table class="table table-striped col-7 text-dark">
+            <thead>
+                <tr>
+                    <th>FullName</th>
+                    <th>Email</th>
+                    <th>Roles</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Where(x => x.FullName != "hello world"))
+                {
+                        <tr>
+                            <td>@user.FullName</td>
+                            <td>@user.Email</td>
+                            <td>@string.Join(" , ", user.Roles.ToList())</td>
+                            <td>
+                                <a class="btn btn-primary" asp-controller="Roles" asp-action="Manage" asp-route-userId="@user.UserId">Manage Roles</a>
+                            </td>
+                        @*<td>
+                            <a class="btn btn-info" asp-controller="User" asp-action="Details" asp-route-Id="@user.UserId">Details</a>
+                        </td>*@
+                            <td>
+                            @if (user.FullName != "Admin")
+                            {
+                                        <form style="display:inline;" method="post" asp-controller="Roles" asp-action="DeleteUser">
+                                            <input type="hidden" name="Id" value="@user.UserId" />
+                                            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+                                        </form>
+                            }
+
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+        <div class="col-4">
+            <div class="row">
+                <div class="col-6">
+                    <h2 class="text-dark">Roles</h2>
+                </div>
+                <div class="col-6 text-right">
+                    <a asp-action="Create" class="btn btn-info">New Role</a>
+                </div>
+            </div>
+            <br />
+            <div>
+                <table class="table table-dark table-striped text-center">
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+
+                        <th></th>
+                    </tr>
+                    @foreach (var item in ViewBag.Roles)
+                    {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td style="width: 150px">
+                                    <div class="btn-group">
+                                        <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.Id">
+                                            Edit
+                                        </a>
+                                        <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Id">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
