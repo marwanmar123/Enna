@@ -23,7 +23,7 @@ var sizeLogo = string.Concat(item.LogoSize, "px");
     <header id="header" class="fixed-top d-flex align-items-center" style="box-shadow: inset 0 100px 80px -80px rgba(0,0,0,.7);background:@item.BgNav;">
     <div class="container d-flex align-items-center">
         <h1 class="logo me-auto"><a asp-controller="Home" asp-action="index">
-            <img style="width:@sizeLogo;" src="~/assets/img/logo.png" />
+            <img style="width:@sizeLogo;" src="~/assets/img/logo1.png" />
         </a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         
@@ -39,7 +39,7 @@ var sizeLogo = string.Concat(item.LogoSize, "px");
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
 
-        <a href="#about" class="get-started-btn scrollto">Get Started</a>
+        <a href="/registrations/create" id="navbar-btn" class="ml-3 scrollto">JE M'INSCRIS!</a>
     </div>
 </header><!-- End Header -->
 }
