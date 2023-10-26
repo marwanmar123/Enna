@@ -117,6 +117,14 @@
       "PackagePath": "staticwebassets\\assets\\img\\clients\\client-8.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\corner1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\corner1.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\corner2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\corner2.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\dashboard.png",
       "PackagePath": "staticwebassets\\assets\\img\\dashboard.png"
     },
