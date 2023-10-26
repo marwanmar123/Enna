@@ -10,7 +10,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Montserrat";
   color: #444444;
 }
 
@@ -22,15 +22,6 @@ a {
 a:hover {
   color: #e76668;
   text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Raleway", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -95,7 +86,6 @@ h6 {
   margin: 0;
   padding: 0;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
 }
 
 #header .logo a {
@@ -166,7 +156,6 @@ h6 {
   align-items: center;
   justify-content: space-between;
   padding: 10px 0 10px 30px;
-  font-family: "Raleway", sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: #111111;
@@ -391,6 +380,16 @@ h6 {
   padding-top: 82px;
 }
 
+.hero {
+  position: relative;
+  width: 100%;
+  background: #333;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  z-index: 1;
+}
+
 #hero:before {
   content: "";
   background: rgba(0, 0, 0, 0.6);
@@ -411,12 +410,11 @@ h6 {
 #hero p {
   color: #adadad;
   margin: 10px 0 0 0;
-  font-size: 18px;
+  font-size: 19px;
   width: 70%;
 }
 
 #hero .btn-get-started {
-  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -436,7 +434,6 @@ h6 {
 }
 
 #hero .btn-contact {
-  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
@@ -799,9 +796,6 @@ section {
 /*--------------------------------------------------------------
 # Counts
 --------------------------------------------------------------*/
-.counts {
-  padding-top: 80px;
-}
 
 .counts .count-box {
   padding: 30px 30px 25px 30px;
@@ -840,10 +834,9 @@ section {
 .counts .count-box p {
   padding: 0;
   margin: 0;
-  font-family: "Raleway", sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: #1b675a;
+  color: black;
 }
 
 /*--------------------------------------------------------------
@@ -1279,7 +1272,6 @@ section {
 .pricing .box h4 {
   font-size: 42px;
   font-weight: 500;
-  font-family: "Open Sans", sans-serif;
   margin-bottom: 20px;
 }
 
@@ -1330,7 +1322,6 @@ section {
   transition: none;
   font-size: 14px;
   font-weight: 400;
-  font-family: "Raleway", sans-serif;
   font-weight: 600;
   transition: 0.3s;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -1361,7 +1352,6 @@ section {
 .faq .faq-list a {
   display: block;
   position: relative;
-  font-family: #e03a3c;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
@@ -1512,6 +1502,21 @@ section {
 }
 .contact-data a:hover {
   box-shadow: inset 0 100px 80px -80px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .contact-iframe {
+    width: 100%;
+    height: 26em;
+  }
+  .contact-data {
+    width: 100%;
+  }
 }
 /*--------------------------------------------------------------
 # Blog
@@ -2197,7 +2202,9 @@ section {
     ENAA sectio 
 
 -------------------------------------*/
-
+.Enaa {
+  padding-bottom: 1.5em !important;
+}
 .enaa-img-Title {
   width: 40%;
 }
@@ -2211,20 +2218,23 @@ section {
   text-align: center;
 }
 .enaa-parties-single {
-  width: 29%;
+  width: 35%;
   margin: 0 auto;
+  margin-right: 1.5em;
 }
 .enaa-parties-single i {
   font-size: 3em;
   padding-bottom: 0.5em;
 }
-/* .enaa-parties-single h3 {
-  width: 75%;
-}*/
+.enaa-parties-single h3 {
+  font-size: 1.3em;
+}
 .enaa-parties-single p {
   text-align: justify;
-  width: 90%;
-  padding-left: 1.5em;
+  width: 100%;
+}
+.fa-solid:hover {
+  color: #1b675a !important;
 }
 
 @media (max-width: 1300px) {
@@ -2513,7 +2523,18 @@ ul ul a {
   width: 30em;
   height: 15em;
   perspective: 1000px;
+  position: relative;
 }
+
+.flip-title {
+  background-color: rgba(22, 175, 58, 0.5);
+  color: #fff;
+  font-weight: bold;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+}
+
 .Flip-content {
   display: flex;
   flex-direction: row;
@@ -2523,7 +2544,7 @@ ul ul a {
 }
 
 .flip-card-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -2553,13 +2574,16 @@ ul ul a {
 }
 
 .flip-card-front {
-  background: linear-gradient(to left, #1b675a, #18d26e);
+  background-image: url("../img/web.jpg");
+  background-size: cover;
+  background-position: center center;
   color: black;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  box-shadow: inset -1px 302px 56px rgba(0, 0, 0, 0.6);
 }
 
 .flip-card-back {
@@ -2572,25 +2596,102 @@ ul ul a {
   align-items: center;
   border-radius: 10px;
 }
+
+.flip-card-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
 @media (max-width: 768px) {
   .Flip-content h3 {
     font-weight: 100 !important;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between !important;
-    width: 100% !important;
-    margin: auto;
   }
-  .flip-card {
-    background-color: transparent;
-    width: 10em !important;
-    height: 15em;
-    perspective: 1000px;
-  }
-  .flip-card h3,
-  p {
-    font-size: 16px;
-    padding: 1em;
+}
+
+.flip-card2 {
+  background-color: transparent;
+  width: 30em;
+  height: 15em;
+  perspective: 1000px;
+  position: relative;
+}
+
+.Flip-content2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  margin: auto;
+}
+
+.flip-card-inner2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.flip-card2:focus {
+  outline: 0;
+}
+
+.flip-card2:hover .flip-card-inner2,
+.flip-card2:focus .flip-card-inner2 {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front2,
+.flip-card-back2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.flip-card-front2 {
+  background-image: url("../img/mobile.jpg");
+  background-size: cover;
+  background-position: center center;
+  color: black;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: inset -1px 302px 56px rgba(0, 0, 0, 0.6);
+}
+
+.flip-card-back2 {
+  background: linear-gradient(to right, #1b675a, #18d26e);
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.flip-card-back2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .Flip-conten2t h3 {
+    font-weight: 100 !important;
   }
 }
 /*--------------------------------------------------------------

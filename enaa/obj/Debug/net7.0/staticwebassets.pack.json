@@ -181,6 +181,10 @@
       "PackagePath": "staticwebassets\\assets\\img\\menu.png"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\mobile.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\mobile.jpg"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\partenaires.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\partenaires.jpg"
     },
@@ -295,6 +299,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\valeurs.svg",
       "PackagePath": "staticwebassets\\assets\\img\\valeurs.svg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\web.jpg",
+      "PackagePath": "staticwebassets\\assets\\img\\web.jpg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\young.png",

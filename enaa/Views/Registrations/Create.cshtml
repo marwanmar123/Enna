@@ -4,6 +4,10 @@
     ViewData["Title"] = "Create";
 }
 
+<style>
+   
+</style>
+
 <section class="w-75 section-multisteps-form" style="margin:9em auto">
     <div class="content">
       <!--content inner-->
@@ -70,7 +74,7 @@
                             <span asp-validation-for="Prenom" class="text-danger"></span>
                         </div>
                       </div>
-                      <div class="w-75 m-auto d-flex flex-row justify-content-center text-center">
+                      <div class="w-75 m-auto d-flex flex-row justify-content-around text-center">
                         <div class="form-check">
                             <input type="checkbox" asp-for="Genre" value="Homme" class="form-check-input" />
                             <label asp-for="Genre" class="form-check-label">Homme</label>
@@ -106,11 +110,20 @@
                         <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                       </div>
-                     <div class="form-group w-75 m-auto">
-                        <label asp-for="DateDeN" class="control-label"></label>
-                        <input type="date" asp-for="DateDeN" class="form-control" />
-                        <span asp-validation-for="DateDeN" class="text-danger"></span>
-                     </div>
+                        <div class="m-auto d-flex flex-row justify-content-around">
+                            <div class="form-group w-50 mr-2">
+                                <label asp-for="DateDeN" class="control-label"></label>
+                                <input type="date" asp-for="DateDeN" class="form-control" />
+                                <span asp-validation-for="DateDeN" class="text-danger"></span>
+                            </div>
+                            <div class="form-group w-50">
+                                <label asp-for="Cin" class="control-label"></label>
+                                <input asp-for="Cin" class="form-control" id="sourceInput" onchange="copyValue()" />
+                                <input type="hidden" readonly class="form-control" name="cinUser" id="cinInput" required />
+                                <span asp-validation-for="Cin" class="text-danger"></span>
+                            </div>
+                        </div>
+                                        <h5 class="text-danger p-2">@TempData["cinExiste"]</h5>
                       <div class="button-row d-flex mt-4">
                         <button
                           class="multisteps-form_btn ml-auto js-btn-next"
@@ -241,12 +254,17 @@
                   >
                     <h3 class="multisteps-form__title">Comments</h3>
                     <div class="multisteps-form__content">
-                      <div class="form-row mt-4">
+                    <div class="form-group w-50">
+                        <label asp-for="Comment" class="control-label"></label>
+                        <textarea asp-for="Comment" class="form-control" placeholder="Comments"></textarea>
+                        <span asp-validation-for="Comment" class="text-danger"></span>
+                    </div>
+                      @* <div class="form-row mt-4">
                         <textarea
                           class="multisteps-form__textarea form-control"
                           placeholder="Comments"
                         ></textarea>
-                      </div>
+                      </div> *@
                       <div class="button-row d-flex mt-4">
                         <button
                           class="multisteps-form_btn js-btn-prev"
@@ -265,7 +283,7 @@
                       </div>
                     </div>
                   </div>
-@*                 <p>@TempData["emailfake"]</p>*@
+                    
                 </form>
               </div>
             </div>
@@ -274,8 +292,43 @@
       </div>
     </div>
     </section>
+
+
+
+
+
     <!-- partial -->
     <script>
+
+    function copyValue() {
+        var sourceInput = document.getElementById("sourceInput");
+        var destinationInput = document.getElementById("cinInput");
+        destinationInput.value = sourceInput.value;
+    }
+
+///////////////////////
+
+    // Get the two checkboxes
+    const hommeCheckbox = document.querySelector('input[type="checkbox"][value="Homme"]');
+    const femmeCheckbox = document.querySelector('input[type="checkbox"][value="Femme"]');
+
+    // Add a click event listener to each checkbox
+    hommeCheckbox.addEventListener('click', function () {
+        // If the homme checkbox is checked, uncheck the femme checkbox
+        if (hommeCheckbox.checked) {
+            femmeCheckbox.checked = false;
+        }
+    });
+
+    femmeCheckbox.addEventListener('click', function () {
+        // If the femme checkbox is checked, uncheck the homme checkbox
+        if (femmeCheckbox.checked) {
+            hommeCheckbox.checked = false;
+        }
+    });
+
+        /////////////////////
+
       //DOM elements
       const DOMstrings = {
         stepsBtnClass: "multisteps-form__progress-btn",
@@ -444,6 +497,9 @@
 
         setAnimationType(newAnimationType);
       });
+
+
+
     </script>
 
 

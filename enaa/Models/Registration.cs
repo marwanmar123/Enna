@@ -15,6 +15,7 @@ namespace enaa.Models
         public int? Age { get; set; }
         public string? Email { get; set; }
         public int? Phone { get; set; }
+        public string? Cin { get; set; }
         public string? BrancheBac { get; set; }
         public string? NiveauAcad { get; set; }
         public string? FiliereAcad { get; set; }
@@ -25,6 +26,7 @@ namespace enaa.Models
         public string? Experience { get; set; }
         public string? SiOuiExperience { get; set; }
         public string? Ville { get; set; }
+        public string? Comment { get; set; }
         public DateTime? RegisteredOn { get; set; } = DateTime.Now;
     }
 }

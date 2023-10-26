@@ -63,25 +63,27 @@ namespace enaa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Create(string cinUser, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Comment,RegisteredOn")] Registration registration)
         {
             var emailSuccess = "Votre e-meil à été vérifié avec succés";
             var emailfake = "emailSuccess";
-            if (ModelState.IsValid)
-            {
-                //if (IsValidEmailFormat(registration.Email))
-                //{
-                //    TempData["emailSuccess"] = emailSuccess;
-                //}
-                //else
-                //{
-                //    TempData["emailfake"] = emailfake;
-                     
-                //}
-                _context.Add(registration);
-                await _context.SaveChangesAsync();
 
-                return RedirectToAction("Index", "Home");
+            var check = await _context.Registration.SingleOrDefaultAsync(x => x.Cin == cinUser);
+
+            if (check == null)
+            {
+                if (ModelState.IsValid)
+                {
+                    _context.Add(registration);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                TempData["cinExiste"] = "Vous êtes déjà inscrit !";
+                return View(registration);
             }
             return RedirectToAction("Index", "Home");
         }
@@ -116,7 +118,7 @@ namespace enaa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Comment,RegisteredOn")] Registration registration)
         {
             if (id != registration.Id)
             {
