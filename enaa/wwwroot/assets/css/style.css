@@ -878,7 +878,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 50%;
+  width: 30%;
   margin: auto;
 }
 .enaa-corner1-register {

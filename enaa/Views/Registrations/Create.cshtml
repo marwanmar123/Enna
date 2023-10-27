@@ -4,6 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
 <div id="hero-register">
     <div class="w-75 m-auto hero-all" data-aos="zoom-out" data-aos-delay="100">
@@ -60,24 +61,25 @@
             <!--form panels-->
             <div class="row">
               <div class="col-12 col-lg-8 m-auto">
-                <form class="multisteps-form__form" asp-action="Create">
+                <form onsubmit="return submitForm(this);" class="multisteps-form__form" asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                   <!--single form panel-->
                   <div
                     class="multisteps-form__panel p-4 rounded bg-white js-active"
                     data-animation="slideHorz"
                   >
+                  <h5 class="text-danger text-center p-2">@TempData["inputsEmpty"]</h5>
                     <h3 class="multisteps-form__title">Informations personnelles</h3>
                     <div class="multisteps-form__content">
                       <div class="m-auto d-flex flex-row justify-content-around">
                        <div class="form-group w-50 mr-2">
                             <label asp-for="Nom" class="control-label"></label>
-                            <input asp-for="Nom" class="form-control" />
+                            <input asp-for="Nom" class="form-control nameInputs" />
                             <span asp-validation-for="Nom" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
                             <label asp-for="Prenom" class="control-label"></label>
-                            <input asp-for="Prenom" class="form-control" />
+                            <input asp-for="Prenom" class="form-control nameInputs" />
                             <span asp-validation-for="Prenom" class="text-danger"></span>
                         </div>
                       </div>
@@ -95,32 +97,32 @@
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
                             <label asp-for="Age" class="control-label"></label>
-                            <input type="number" asp-for="Age" class="form-control" />
+                            <input type="number" asp-for="Age" class="form-control nameInputs" />
                             <span asp-validation-for="Age" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
                             <label asp-for="Ville" class="control-label"></label>
-                            <input asp-for="Ville" class="form-control" />
+                            <input asp-for="Ville" class="form-control nameInputs" />
                             <span asp-validation-for="Ville" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
                         <label asp-for="Email" class="control-label"></label>
-                        <input type="email" asp-for="Email" class="form-control" />
+                        <input type="email" asp-for="Email" class="form-control nameInputs" />
                         @* <p style="color:green;">@TempData["emailSuccess"]</p> *@
                         <span asp-validation-for="Email" class="text-danger"></span>
                      </div>
                     <div class="form-group w-50">
                         <label asp-for="Phone" class="control-label"></label>
-                        <input type="number" asp-for="Phone" class="form-control" />
+                        <input type="number" asp-for="Phone" class="form-control nameInputs" />
                         <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                       </div>
                         <div class="m-auto d-flex flex-row justify-content-around">
                             <div class="form-group w-50 mr-2">
                                 <label asp-for="DateDeN" class="control-label"></label>
-                                <input type="date" asp-for="DateDeN" class="form-control" />
+                                <input type="date" asp-for="DateDeN" class="form-control nameInputs" />
                                 <span asp-validation-for="DateDeN" class="text-danger"></span>
                             </div>
                             <div class="form-group w-50">
@@ -176,19 +178,19 @@
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
                             <label asp-for="DernierDip" class="control-label"></label>
-                            <input asp-for="DernierDip" class="form-control" />
+                            <input asp-for="DernierDip" class="form-control nameInputs" />
                             <span asp-validation-for="DernierDip" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
                             <label asp-for="Etablissement" class="control-label"></label>
-                            <input asp-for="Etablissement" class="form-control" />
+                            <input asp-for="Etablissement" class="form-control nameInputs" />
                             <span asp-validation-for="Etablissement" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-center">
                         <div class="form-group w-75">
                             <label asp-for="AnneeDiplome" class="control-label"></label>
-                            <input type="date" asp-for="AnneeDiplome" class="form-control" />
+                            <input type="date" asp-for="AnneeDiplome" class="form-control nameInputs" />
                             <span asp-validation-for="AnneeDiplome" class="text-danger"></span>
                         </div>
                       </div>
@@ -300,7 +302,29 @@
 
     <!-- partial -->
     <script>
+function submitForm(form) {
+  // Get all input elements with the class name "nameInputs".
+  const inputFields = document.querySelectorAll('.nameInputs');
 
+  // Check if all of the input fields are empty.
+  
+
+  // Show the SweetAlert modal.
+  Swal.fire({
+    title: "Merci!",
+    text: "Bienvenue",
+    icon: "warning",
+    confirmButtonText: "Sauvegarder",
+  }).then((result) => {
+    // If the user confirms, submit the form.
+    if (result.isConfirmed) {
+      form.submit();
+    }
+  });
+
+  // Prevent the default form submission.
+  return false;
+}
     
 //////////////////////////////
     function copyValue() {

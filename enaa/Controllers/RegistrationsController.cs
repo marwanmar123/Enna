@@ -70,22 +70,29 @@ namespace enaa.Controllers
 
             var check = await _context.Registration.SingleOrDefaultAsync(x => x.Cin == cinUser);
 
-            if (check == null)
-            {
-                if (ModelState.IsValid)
+            try{
+                if (check == null)
                 {
-                    _context.Add(registration);
-                    await _context.SaveChangesAsync();
+                    if (ModelState.IsValid)
+                    {
+                        _context.Add(registration);
+                        await _context.SaveChangesAsync();
 
-                    return RedirectToAction("Index", "Home");
+                        return RedirectToAction("index", "home");
+                    }else{
+                        TempData["inputsEmpty"] = "remplir les champs !";
+                    }
+                    
                 }
+                else
+                {
+                    TempData["cinExiste"] = "Vous êtes déjà inscrit !";
+                    return View();
+                }
+            }catch(Exception ex){
+                return RedirectToAction("index", "home");
             }
-            else
-            {
-                TempData["cinExiste"] = "Vous êtes déjà inscrit !";
-                return View(registration);
-            }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("index", "home");
         }
 
 
