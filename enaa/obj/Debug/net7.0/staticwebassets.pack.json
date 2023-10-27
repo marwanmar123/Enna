@@ -9,12 +9,24 @@
       "PackagePath": "staticwebassets\\assets\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\ASS.png",
+      "PackagePath": "staticwebassets\\assets\\img\\ASS.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\INDH.png",
+      "PackagePath": "staticwebassets\\assets\\img\\INDH.png"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\affiche_H.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\affiche_H.jpg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\apple-touch-icon.png",
       "PackagePath": "staticwebassets\\assets\\img\\apple-touch-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\benimellal.png",
+      "PackagePath": "staticwebassets\\assets\\img\\benimellal.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\blog\\blog-1.jpg",
@@ -193,6 +205,22 @@
       "PackagePath": "staticwebassets\\assets\\img\\mobile.jpg"
     },
     {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\p1.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p2.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\p2.svg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p3.svg",
+      "PackagePath": "staticwebassets\\assets\\img\\p3.svg"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p4.jpeg",
+      "PackagePath": "staticwebassets\\assets\\img\\p4.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\partenaires.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\partenaires.jpg"
     },
@@ -251,6 +279,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\save.png",
       "PackagePath": "staticwebassets\\assets\\img\\save.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\simplone.png",
+      "PackagePath": "staticwebassets\\assets\\img\\simplone.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\tabs-1.jpg",

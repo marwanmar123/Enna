@@ -361,8 +361,17 @@ a:hover {
   position: relative;
   padding-top: 82px;
 }
+#hero-register {
+  width: 100%;
+  height: 50vh;
+  background: url("../img/jeunes.jpg") top center no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 82px;
+  box-shadow: inset -1px 456px 56px rgba(0, 0, 0, 0.6);
+}
 
-.hero {
+/* .hero {
   position: relative;
   width: 100%;
   background: #333;
@@ -370,7 +379,7 @@ a:hover {
   background-size: cover;
   background-position: center center;
   z-index: 1;
-}
+} */
 
 #hero:before {
   content: "";
@@ -865,6 +874,29 @@ section {
   text-align: center;
   padding: 2em;
 }
+.enaa-content-register {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  margin: auto;
+}
+.enaa-corner1-register {
+  width: 3vw;
+  height: 6vh;
+  align-self: flex-end;
+}
+.enaa-corner2-register {
+  width: 3vw;
+  height: 6vh;
+  transform: rotateY(180deg);
+  align-self: flex-end;
+}
+.enaa-Text-register {
+  text-align: center;
+  padding: 4em 2em 0 2em;
+  color: #fff;
+}
 .enaa-parties {
   display: flex;
   flex-direction: row;
@@ -993,9 +1025,13 @@ ul ul a {
 -----------------------------------*/
 .section-multisteps-form {
   border-radius: 1em;
-  background: #f8f6f6;
+  box-shadow: -8px 6px 46px -6px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: -8px 6px 46px -6px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: -8px 6px 46px -6px rgba(0, 0, 0, 0.48);
 }
-
+.multisteps-form__title {
+  padding: 0px 0 15px 0;
+}
 .content__title {
   margin-bottom: 40px;
   font-size: 20px;
@@ -1030,7 +1066,7 @@ ul ul a {
   transition-timing-function: linear;
   transition-delay: 0s;
   position: relative;
-  padding-top: 20px;
+  padding-top: 35px;
   color: rgba(108, 117, 125, 0.7);
   text-indent: -9999px;
   border: none;
@@ -1048,8 +1084,8 @@ ul ul a {
   top: 0;
   left: 50%;
   display: block;
-  width: 13px;
-  height: 13px;
+  width: 30px;
+  height: 30px;
   content: "";
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -1068,7 +1104,7 @@ ul ul a {
 }
 .multisteps-form__progress-btn:after {
   position: absolute;
-  top: 5px;
+  top: 14px;
   left: calc(-50% - 13px / 2);
   transition-property: all;
   transition-duration: 0.15s;
