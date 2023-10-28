@@ -11,16 +11,20 @@ using Microsoft.AspNetCore.Authorization;
 using System.Net.Mail;
 using Microsoft.VisualBasic;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using enaa.Services;
 
 namespace enaa.Controllers
 {
     public class RegistrationsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IEmailSender _emailSender;
 
-        public RegistrationsController(ApplicationDbContext context)
+        public RegistrationsController(ApplicationDbContext context, IEmailSender emailSender)
         {
             _context = context;
+            _emailSender = emailSender;
         }
 
         [Authorize(Roles = "Admin")]
@@ -78,21 +82,28 @@ namespace enaa.Controllers
                         _context.Add(registration);
                         await _context.SaveChangesAsync();
 
-                        return RedirectToAction("index", "home");
+                        await _emailSender.SendEmailAsync(registration.Email, "Confirmation de l'inscription",
+                            $"<h3>Cher/Chère "+ registration.Nom + " , </h3>" +
+                            "<p>Nous sommes ravis de vous informer que votre inscription a été confirmée avec succès.</p>" +
+                            "<p>L'équipe de Enaa vous contactera dans les plus brefs délais,</p>" +
+                            "<h5>À très vite!<br/>ENAA</h5>.");
+
+                        return RedirectToAction("Index", "Home");
                     }else{
-                        TempData["inputsEmpty"] = "remplir les champs !";
+                        TempData["inputsEmpty"] = "Remplir les champs !";
+                        return View(registration);
                     }
                     
                 }
                 else
                 {
                     TempData["cinExiste"] = "Vous êtes déjà inscrit !";
-                    return View();
+                    return View(registration);
                 }
             }catch(Exception ex){
-                return RedirectToAction("index", "home");
+                return View(registration);
             }
-            return RedirectToAction("index", "home");
+            //return View();
         }
 
 

@@ -1,7 +1,18 @@
 ﻿@model enaa.Models.Registration
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Inscription";
+        List<SelectListItem> genre = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text="Homme", Value="Homme"},
+            new SelectListItem() { Text="Femme", Value="Homme"},
+        };
+
+    List<SelectListItem> situation = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text="Oui", Value="Oui"},
+            new SelectListItem() { Text="Non", Value="Non"},
+        };
 }
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
@@ -53,7 +64,7 @@
                     type="button"
                     title="Comments"
                   >
-                    Comments
+                    Commentaire
                   </button>
                 </div>
               </div>
@@ -83,15 +94,11 @@
                             <span asp-validation-for="Prenom" class="text-danger"></span>
                         </div>
                       </div>
-                      <div class="w-75 m-auto d-flex flex-row justify-content-around text-center">
-                        <div class="form-check">
-                            <input type="checkbox" asp-for="Genre" value="Homme" class="form-check-input" />
-                            <label asp-for="Genre" class="form-check-label">Homme</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" asp-for="Genre" value="Femme" class="form-check-input" />
-                            <label asp-for="Genre" class="form-check-label">Femme</label>
-                        </div>
+                      <div class="d-flex flex-column">
+                            <label class="control-label">Genre</label>
+                            <select asp-for="Genre" asp-items="@genre" class="form-control custom-select mb-3">
+                                <option>-Select Genre-</option>
+                            </select>
                       </div>
                         
                       <div class="m-auto d-flex flex-row justify-content-around">
@@ -121,7 +128,7 @@
                       </div>
                         <div class="m-auto d-flex flex-row justify-content-around">
                             <div class="form-group w-50 mr-2">
-                                <label asp-for="DateDeN" class="control-label"></label>
+                                <label class="control-label">Date de naissance</label>
                                 <input type="date" asp-for="DateDeN" class="form-control nameInputs" />
                                 <span asp-validation-for="DateDeN" class="text-danger"></span>
                             </div>
@@ -153,24 +160,24 @@
                     <div class="multisteps-form__content">
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label asp-for="BrancheBac" class="control-label"></label>
+                            <label class="control-label">Branche du bac</label>
                             <input asp-for="BrancheBac" class="form-control" />
                             <span asp-validation-for="BrancheBac" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label asp-for="NiveauAcad" class="control-label"></label>
+                            <label class="control-label">Niveau académique</label>
                             <input asp-for="NiveauAcad" class="form-control" />
                             <span asp-validation-for="NiveauAcad" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label asp-for="FiliereAcad" class="control-label"></label>
+                            <label class="control-label">Filière académique</label>
                             <input asp-for="FiliereAcad" class="form-control" />
                             <span asp-validation-for="FiliereAcad" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label asp-for="AutreFiliereAcad" class="control-label"></label>
+                            <label class="control-label">Autre filière académique</label>
                             <input asp-for="AutreFiliereAcad" class="form-control" />
                             <span asp-validation-for="AutreFiliereAcad" class="text-danger"></span>
                         </div>
@@ -188,8 +195,8 @@
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-center">
-                        <div class="form-group w-75">
-                            <label asp-for="AnneeDiplome" class="control-label"></label>
+                        <div class="form-group d-flex flex-row">
+                            <label class="control-label">Année d'obtention de votre dernier diplôme</label>
                             <input type="date" asp-for="AnneeDiplome" class="form-control nameInputs" />
                             <span asp-validation-for="AnneeDiplome" class="text-danger"></span>
                         </div>
@@ -220,14 +227,11 @@
                     <h3 class="multisteps-form__title">Expérience</h3>
                     <div class="multisteps-form__content">
                       <div class="w-75 m-auto d-flex flex-row justify-content-around text-center">
-                          <div class="form-check">
-                              <input type="checkbox" asp-for="Experience" value="Oui" class="form-check-input" />
-                            <label asp-for="Experience" class="form-check-label">Oui</label>
-                          </div>
-                          <div class="form-check">
-                            <input type="checkbox" asp-for="Experience" value="Non" class="form-check-input" />
-                            <label asp-for="Experience" class="form-check-label">Non</label>
-                          </div>
+                        <label class="control-label">Avez-vous une expérience professionnelles ?</label>
+                        <select asp-for="Experience" asp-items="@situation" class="form-control custom-select">
+                            <option>-Oui ou Non-</option>
+                            @* <option value="@Model.Experience">@Model.Experience</option> *@
+                        </select>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-center pt-4">
                         <div class="form-group w-75">
@@ -264,7 +268,7 @@
                     <h3 class="multisteps-form__title">Comments</h3>
                     <div class="multisteps-form__content">
                     <div class="form-group w-50">
-                        <label asp-for="Comment" class="control-label"></label>
+                        <label class="control-label">Commentaire</label>
                         <textarea asp-for="Comment" class="form-control" placeholder="Comments"></textarea>
                         <span asp-validation-for="Comment" class="text-danger"></span>
                     </div>
@@ -312,8 +316,8 @@ function submitForm(form) {
   // Show the SweetAlert modal.
   Swal.fire({
     title: "Merci!",
-    text: "Bienvenue",
-    icon: "warning",
+    text: "Merci pour votre inscription, Veuillez vérifier votre boîte mail.",
+    icon: "success",
     confirmButtonText: "Sauvegarder",
   }).then((result) => {
     // If the user confirms, submit the form.
@@ -335,44 +339,44 @@ function submitForm(form) {
 
 ///////////////////////
 
-    // Get the two checkboxes
-    const hommeCheckbox = document.querySelector('input[type="checkbox"][value="Homme"]');
-    const femmeCheckbox = document.querySelector('input[type="checkbox"][value="Femme"]');
+    // // Get the two checkboxes
+    // const hommeCheckbox = document.querySelector('input[type="checkbox"][value="Homme"]');
+    // const femmeCheckbox = document.querySelector('input[type="checkbox"][value="Femme"]');
 
-    // Add a click event listener to each checkbox
-    hommeCheckbox.addEventListener('click', function () {
-        // If the homme checkbox is checked, uncheck the femme checkbox
-        if (hommeCheckbox.checked) {
-            femmeCheckbox.checked = false;
-        }
-    });
+    // // Add a click event listener to each checkbox
+    // hommeCheckbox.addEventListener('click', function () {
+    //     // If the homme checkbox is checked, uncheck the femme checkbox
+    //     if (hommeCheckbox.checked) {
+    //         femmeCheckbox.checked = false;
+    //     }
+    // });
 
-    femmeCheckbox.addEventListener('click', function () {
-        // If the femme checkbox is checked, uncheck the homme checkbox
-        if (femmeCheckbox.checked) {
-            hommeCheckbox.checked = false;
-        }
-    });
+    // femmeCheckbox.addEventListener('click', function () {
+    //     // If the femme checkbox is checked, uncheck the homme checkbox
+    //     if (femmeCheckbox.checked) {
+    //         hommeCheckbox.checked = false;
+    //     }
+    // });
 
 
-        // Get the two checkboxes
-    const ouiCheckbox = document.querySelector('input[type="checkbox"][value="Oui"]');
-    const nonCheckbox = document.querySelector('input[type="checkbox"][value="Non"]');
+    //     // Get the two checkboxes
+    // const ouiCheckbox = document.querySelector('input[type="checkbox"][value="Oui"]');
+    // const nonCheckbox = document.querySelector('input[type="checkbox"][value="Non"]');
 
-    // Add a click event listener to each checkbox
-    ouiCheckbox.addEventListener('click', function () {
-        // If the oui checkbox is checked, uncheck the non checkbox
-        if (ouiCheckbox.checked) {
-            nonCheckbox.checked = false;
-        }
-    });
+    // // Add a click event listener to each checkbox
+    // ouiCheckbox.addEventListener('click', function () {
+    //     // If the oui checkbox is checked, uncheck the non checkbox
+    //     if (ouiCheckbox.checked) {
+    //         nonCheckbox.checked = false;
+    //     }
+    // });
 
-    nonCheckbox.addEventListener('click', function () {
-        // If the non checkbox is checked, uncheck the oui checkbox
-        if (nonCheckbox.checked) {
-            ouiCheckbox.checked = false;
-        }
-    });
+    // nonCheckbox.addEventListener('click', function () {
+    //     // If the non checkbox is checked, uncheck the oui checkbox
+    //     if (nonCheckbox.checked) {
+    //         ouiCheckbox.checked = false;
+    //     }
+    // });
 
         /////////////////////
 
