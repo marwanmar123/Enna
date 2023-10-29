@@ -878,7 +878,7 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 50%;
+  width: 30%;
   margin: auto;
 }
 .enaa-corner1-register {
@@ -894,8 +894,9 @@ section {
 }
 .enaa-Text-register {
   text-align: center;
-  padding: 4em 2em 0 2em;
+  padding: 3em 0.5em 0 0.5em;
   color: #fff;
+  font-size:3em;
 }
 .enaa-parties {
   display: flex;

@@ -13,6 +13,13 @@
             new SelectListItem() { Text="Oui", Value="Oui"},
             new SelectListItem() { Text="Non", Value="Non"},
         };
+    List<SelectListItem> niveau = new List<SelectListItem>()
+        {
+            new SelectListItem() { Text="Bac", Value="Bac"},
+            new SelectListItem() { Text="Bac+2", Value="Bac+2"},
+            new SelectListItem() { Text="Bac+3", Value="Bac+3"},
+            new SelectListItem() { Text="Bac+5", Value="Bac+5"},
+        };
 }
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
@@ -104,15 +111,20 @@
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
                             <label asp-for="Age" class="control-label"></label>
-                            <input type="number" asp-for="Age" class="form-control nameInputs" />
+                            <input type="number" asp-for="Age" min="18" max="35" class="form-control nameInputs" placeholder="18" />
                             <span asp-validation-for="Age" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label asp-for="Ville" class="control-label"></label>
+                            <label class="control-label">Ville de résidence</label>
                             <input asp-for="Ville" class="form-control nameInputs" />
                             <span asp-validation-for="Ville" class="text-danger"></span>
                         </div>
                       </div>
+                    <div class="form-group w-100 mr-2">
+                        <label asp-for="Adresse" class="control-label"></label>
+                        <input asp-for="Adresse" class="form-control nameInputs" />
+                        <span asp-validation-for="Adresse" class="text-danger"></span>
+                    </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
                         <label asp-for="Email" class="control-label"></label>
@@ -121,15 +133,15 @@
                         <span asp-validation-for="Email" class="text-danger"></span>
                      </div>
                     <div class="form-group w-50">
-                        <label asp-for="Phone" class="control-label"></label>
-                        <input type="number" asp-for="Phone" class="form-control nameInputs" />
+                        <label class="control-label">Téléphone portable</label>
+                        <input type="number" asp-for="Phone" class="form-control" />
                         <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                       </div>
                         <div class="m-auto d-flex flex-row justify-content-around">
                             <div class="form-group w-50 mr-2">
                                 <label class="control-label">Date de naissance</label>
-                                <input type="date" asp-for="DateDeN" class="form-control nameInputs" />
+                                <input type="date" asp-for="DateDeN" class="form-control" />
                                 <span asp-validation-for="DateDeN" class="text-danger"></span>
                             </div>
                             <div class="form-group w-50">
@@ -166,8 +178,9 @@
                         </div>
                         <div class="form-group w-50">
                             <label class="control-label">Niveau académique</label>
-                            <input asp-for="NiveauAcad" class="form-control" />
-                            <span asp-validation-for="NiveauAcad" class="text-danger"></span>
+                                <select asp-for="Genre" asp-items="@niveau" class="form-control custom-select mb-3">
+                                <option>-Select Genre-</option>
+                            </select>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
@@ -184,20 +197,20 @@
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label asp-for="DernierDip" class="control-label"></label>
-                            <input asp-for="DernierDip" class="form-control nameInputs" />
+                            <label class="control-label">Dernier diplôme</label>
+                            <input asp-for="DernierDip" class="form-control" />
                             <span asp-validation-for="DernierDip" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
                             <label asp-for="Etablissement" class="control-label"></label>
-                            <input asp-for="Etablissement" class="form-control nameInputs" />
+                            <input asp-for="Etablissement" class="form-control" />
                             <span asp-validation-for="Etablissement" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-center">
                         <div class="form-group d-flex flex-row">
                             <label class="control-label">Année d'obtention de votre dernier diplôme</label>
-                            <input type="date" asp-for="AnneeDiplome" class="form-control nameInputs" />
+                            <input type="date" asp-for="AnneeDiplome" class="form-control" />
                             <span asp-validation-for="AnneeDiplome" class="text-danger"></span>
                         </div>
                       </div>
@@ -311,23 +324,24 @@ function submitForm(form) {
   const inputFields = document.querySelectorAll('.nameInputs');
 
   // Check if all of the input fields are empty.
-  
 
-  // Show the SweetAlert modal.
+    // if ($('.nameInputs').val().length === 0) { 
+    //     alert('Remplir les champs');
+    // }
+
   Swal.fire({
     title: "Merci!",
     text: "Merci pour votre inscription, Veuillez vérifier votre boîte mail.",
     icon: "success",
     confirmButtonText: "Sauvegarder",
   }).then((result) => {
-    // If the user confirms, submit the form.
     if (result.isConfirmed) {
       form.submit();
     }
   });
 
-  // Prevent the default form submission.
   return false;
+
 }
     
 //////////////////////////////

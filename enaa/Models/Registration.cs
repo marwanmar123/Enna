@@ -28,13 +28,16 @@ namespace enaa.Models
         public string? NiveauAcad { get; set; }
         public string? FiliereAcad { get; set; }
         public string? AutreFiliereAcad { get; set; }
-        public DateTime? DernierDip { get; set; }
+        public string? DernierDip { get; set; }
         public string? Etablissement { get; set; }
         public DateTime? AnneeDiplome { get; set; }
         public string? Experience { get; set; }
         public string? SiOuiExperience { get; set; }
+        [Required]
         public string? Ville { get; set; }
+        public string? Adresse { get; set; }
         public string? Comment { get; set; }
+        public Boolean? Confirmation { get; set; } = false;
         public DateTime? RegisteredOn { get; set; } = DateTime.Now;
     }
 }

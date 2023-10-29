@@ -205,6 +205,9 @@ namespace enaa.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<string>("Adresse")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("Age")
                         .IsRequired()
                         .HasColumnType("int");
@@ -225,11 +228,14 @@ namespace enaa.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool?>("Confirmation")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("DateDeN")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("DernierDip")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DernierDip")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -269,6 +275,7 @@ namespace enaa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ville")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

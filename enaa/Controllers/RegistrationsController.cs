@@ -33,7 +33,7 @@ namespace enaa.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.Registration != null ? 
-                          View(await _context.Registration.ToListAsync()) :
+                          View(await _context.Registration.Where(x => x.Confirmation == true).ToListAsync()) :
                           Problem("Entity set 'ApplicationDbContext.Registration'  is null.");
         }
 
@@ -67,7 +67,7 @@ namespace enaa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string cinUser, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Comment,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Create(string cinUser, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
         {
             var emailSuccess = "Votre e-meil à été vérifié avec succés";
             var emailfake = "emailSuccess";
@@ -84,7 +84,7 @@ namespace enaa.Controllers
 
                         await _emailSender.SendEmailAsync(registration.Email, "Confirmation de l'inscription",
                             $"<h3>Cher/Chère "+ registration.Nom + " , </h3>" +
-                            "<p>Nous sommes ravis de vous informer que votre inscription a été confirmée avec succès.</p>" +
+                            "<p>Nous sommes ravis de vous informer que votre inscription a été validée avec succès <a href='http://enalhansali-001-site1.ctempurl.com/Registrations/ConfirmDetails/" + registration.Id + "'>click ici pour confirmer votre inscription</a>.</p>" +
                             "<p>L'équipe de Enaa vous contactera dans les plus brefs délais,</p>" +
                             "<h5>À très vite!<br/>ENAA</h5>.");
 
@@ -113,6 +113,35 @@ namespace enaa.Controllers
             return Regex.IsMatch(email, pattern);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> isConfirmed(bool? confirme, string? id)
+        {
+
+            var about = _context.Registration.FirstOrDefault(a => a.Id == id);
+            about.Confirmation = confirme;
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        public async Task<IActionResult> ConfirmDetails(string id)
+        {
+            if (id == null || _context.Registration == null)
+            {
+                return NotFound();
+            }
+
+            var registration = await _context.Registration
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (registration == null)
+            {
+                return NotFound();
+            }
+
+            return View(registration);
+        }
+
         // GET: Registrations/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
@@ -136,7 +165,7 @@ namespace enaa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Comment,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
         {
             if (id != registration.Id)
             {

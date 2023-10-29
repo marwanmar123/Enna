@@ -1,0 +1,17 @@
+﻿@model enaa.Models.Registration
+
+@{
+    ViewData["Title"] = "ConfirmDetails";
+}
+
+<h1>ConfirmDetails</h1>
+
+<div class="w-50 m-auto p-4">
+    <hr />
+
+    <form id="online" style="display:inline;" asp-action="isConfirmed">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="confirme" value="true" />
+        <button type="submit" class="btn btn-success">Confirmer</button>
+    </form>
+</div>

@@ -94,6 +94,12 @@ a:hover {
   max-height: 40px;
 }
 
+@media (max-width: 700px) {
+    #header{
+        padding:12px;
+    }
+}
+
 /*--------------------------------------------------------------
 # Get Startet Button
 --------------------------------------------------------------*/
@@ -244,7 +250,7 @@ a:hover {
 */
 .mobile-nav-toggle {
   color: #111111;
-  font-size: 28px;
+  font-size: 45px;
   cursor: pointer;
   display: none;
   line-height: 0;
@@ -350,13 +356,14 @@ a:hover {
   color: #9cc943;
 }
 
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/affiche_H.jpg") top center no-repeat;
+  background: url("../img/jeunes.jpg") top center no-repeat;
   background-size: cover;
   position: relative;
   padding-top: 82px;
@@ -529,7 +536,9 @@ a:hover {
   #hero {
     height: 120vh;
   }
+
 }
+
 
 .mouse {
   width: 50px;
@@ -872,7 +881,7 @@ section {
 }
 .enaa-Text {
   text-align: center;
-  padding: 2em;
+  padding: 4em 2em 2em 2em;
 }
 .enaa-content-register {
   display: flex;
@@ -931,11 +940,15 @@ section {
     width: 90%;
     margin: 0 auto;
   }
-  .enaa-parties {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+  
+}
+
+@media (max-width :900px){
+    .enaa-parties {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 }
 
 /*------------------------------------
