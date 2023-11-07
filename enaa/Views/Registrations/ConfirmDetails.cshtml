@@ -3,15 +3,29 @@
 @{
     ViewData["Title"] = "ConfirmDetails";
 }
+<style>
+    .conf{
+        background: #1b675a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 94vh;
+    }
+</style>
 
 <h1>ConfirmDetails</h1>
 
-<div class="w-50 m-auto p-4">
-    <hr />
+<div class="conf">
 
-    <form id="online" style="display:inline;" asp-action="isConfirmed">
+    <div>
+        <img style="margin:2em;" src="~/assets/img/logo-footer.png" alt="Logo" width="40%">
+    </div>
+
+    <form id="online" style="width:40%;" asp-action="isConfirmed">
         <input type="hidden" name="Id" value="@Model.Id" />
         <input type="hidden" name="confirme" value="true" />
-        <button type="submit" class="btn btn-success">Confirmer</button>
+        <button type="submit" class="btn btn-success w-100" style="padding:0.5em;">Confirmer</button>
     </form>
 </div>

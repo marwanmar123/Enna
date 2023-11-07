@@ -219,6 +219,7 @@ namespace enaa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BrancheBac")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Cin")
@@ -235,6 +236,9 @@ namespace enaa.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("DernierDip")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Domaine")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -275,7 +279,6 @@ namespace enaa.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ville")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

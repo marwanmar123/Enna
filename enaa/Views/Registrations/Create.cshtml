@@ -15,17 +15,18 @@
         };
     List<SelectListItem> niveau = new List<SelectListItem>()
         {
-            new SelectListItem() { Text="Bac", Value="Bac"},
             new SelectListItem() { Text="Bac+2", Value="Bac+2"},
             new SelectListItem() { Text="Bac+3", Value="Bac+3"},
             new SelectListItem() { Text="Bac+5", Value="Bac+5"},
+            new SelectListItem() { Text="Bac+5 et plus", Value="Bac+5 et plus"},
         };
 }
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
 
+
 <div id="hero-register">
-    <div class="w-75 m-auto hero-all" data-aos="zoom-out" data-aos-delay="100">
+    <div class="w-75 m-auto hero-all" style="position:relative; top:50%;" data-aos="zoom-out" data-aos-delay="100">
         <div class="enaa-content-register" data-aos="flip-right">
             <img class="enaa-corner1-register" src="~/assets/img/corner1.png">
             <h1 class="enaa-Text-register">Inscription</h1>
@@ -91,69 +92,74 @@
                     <div class="multisteps-form__content">
                       <div class="m-auto d-flex flex-row justify-content-around">
                        <div class="form-group w-50 mr-2">
-                            <label asp-for="Nom" class="control-label"></label>
+                            <label asp-for="Nom" class="control-label"></label><span class="text-danger">*</span>
                             <input asp-for="Nom" class="form-control nameInputs" />
                             <span asp-validation-for="Nom" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label asp-for="Prenom" class="control-label"></label>
+                                                <label asp-for="Prenom" class="control-label"></label><span class="text-danger">*</span>
                             <input asp-for="Prenom" class="form-control nameInputs" />
                             <span asp-validation-for="Prenom" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="d-flex flex-column">
-                            <label class="control-label">Genre</label>
+                                            <label class="control-label">Genre<span class="text-danger">*</span></label>
                             <select asp-for="Genre" asp-items="@genre" class="form-control custom-select mb-3">
-                                <option>-Select Genre-</option>
+                                <option>-Genre-</option>
                             </select>
                       </div>
                         
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label asp-for="Age" class="control-label"></label>
+                                                <label asp-for="Age" class="control-label"></label><span class="text-danger">*</span>
                             <input type="number" asp-for="Age" min="18" max="35" class="form-control nameInputs" placeholder="18" />
                             <span asp-validation-for="Age" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label class="control-label">Ville de résidence</label>
-                            <input asp-for="Ville" class="form-control nameInputs" />
-                            <span asp-validation-for="Ville" class="text-danger"></span>
+                                                <label asp-for="Cin" class="control-label"></label><span class="text-danger">*</span>
+                                                <input asp-for="Cin" class="form-control" id="sourceInput" onchange="copyValue()" />
+                                                <input type="hidden" readonly class="form-control" name="cinUser" id="cinInput" required />
+                                                <span asp-validation-for="Cin" class="text-danger"></span>
                         </div>
                       </div>
                     <div class="form-group w-100 mr-2">
-                        <label asp-for="Adresse" class="control-label"></label>
-                        <input asp-for="Adresse" class="form-control nameInputs" />
+                                            <label asp-for="Adresse" class="control-label"></label><span class="text-danger">*</span>
+                        <input asp-for="Adresse" class="form-control" />
                         <span asp-validation-for="Adresse" class="text-danger"></span>
                     </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                        <label asp-for="Email" class="control-label"></label>
-                        <input type="email" asp-for="Email" class="form-control nameInputs" />
-                        @* <p style="color:green;">@TempData["emailSuccess"]</p> *@
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                     </div>
+                                                <label class="control-label">Ville de résidence</label><span class="text-danger">*</span>
+                                                <input asp-for="Ville" class="form-control" />
+                                                <span asp-validation-for="Ville" class="text-danger"></span>
+                                            </div>
                     <div class="form-group w-50">
-                        <label class="control-label">Téléphone portable</label>
+                                                <label class="control-label">Téléphone portable</label><span class="text-danger">*</span>
                         <input type="number" asp-for="Phone" class="form-control" />
                         <span asp-validation-for="Phone" class="text-danger"></span>
                     </div>
                       </div>
                         <div class="m-auto d-flex flex-row justify-content-around">
                             <div class="form-group w-50 mr-2">
-                                <label class="control-label">Date de naissance</label>
+                                                <label class="control-label">Date de naissance</label><span class="text-danger">*</span>
                                 <input type="date" asp-for="DateDeN" class="form-control" />
                                 <span asp-validation-for="DateDeN" class="text-danger"></span>
                             </div>
                             <div class="form-group w-50">
-                                <label asp-for="Cin" class="control-label"></label>
-                                <input asp-for="Cin" class="form-control" id="sourceInput" onchange="copyValue()" />
-                                <input type="hidden" readonly class="form-control" name="cinUser" id="cinInput" required />
-                                <span asp-validation-for="Cin" class="text-danger"></span>
-                            </div>
+                                                <label asp-for="Email" class="control-label"></label><span class="text-danger">*</span>
+                                                <input type="email" asp-for="Email" class="form-control" />
+                                                @* <p style="color:green;">@TempData["emailSuccess"]</p> *@
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
                         </div>
-                                        <h5 class="text-danger p-2">@TempData["cinExiste"]</h5>
+                        <div class="d-flex flex-row">
+                                            <input class="mr-2" style="align-self: start; margin-top:5px;" type="checkbox" />
+                                            <p class="text-dark">Je déclare être disponible pendant toute la durée de la formation en présentiel et avoir un logement dans la ville de BENI MELLAL pour toute la période de formation (10 à 12 mois).</p>
+                        </div>
+                        <h5 class="text-danger p-2">@TempData["cinExiste"]</h5>
                       <div class="button-row d-flex mt-4">
                         <button
+                            id="btnNext"
                           class="multisteps-form_btn ml-auto js-btn-next"
                           type="button"
                           title="Next"
@@ -172,20 +178,20 @@
                     <div class="multisteps-form__content">
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label class="control-label">Branche du bac</label>
+                                                <label class="control-label">Branche du bac<span class="text-danger">*</span></label>
                             <input asp-for="BrancheBac" class="form-control" />
                             <span asp-validation-for="BrancheBac" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label class="control-label">Niveau académique</label>
+                                                <label class="control-label">Niveau académique<span class="text-danger">*</span></label>
                                 <select asp-for="Genre" asp-items="@niveau" class="form-control custom-select mb-3">
-                                <option>-Select Genre-</option>
+                                <option>-Niveau-</option>
                             </select>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label class="control-label">Filière académique</label>
+                                                <label class="control-label">Filière académique<span class="text-danger">*</span></label>
                             <input asp-for="FiliereAcad" class="form-control" />
                             <span asp-validation-for="FiliereAcad" class="text-danger"></span>
                         </div>
@@ -197,19 +203,19 @@
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-around">
                         <div class="form-group w-50 mr-2">
-                            <label class="control-label">Dernier diplôme</label>
+                                                <label class="control-label">Dernier diplôme<span class="text-danger">*</span></label>
                             <input asp-for="DernierDip" class="form-control" />
                             <span asp-validation-for="DernierDip" class="text-danger"></span>
                         </div>
                         <div class="form-group w-50">
-                            <label asp-for="Etablissement" class="control-label"></label>
+                                                <label class="control-label">Etablissement<span class="text-danger">*</span></label>
                             <input asp-for="Etablissement" class="form-control" />
                             <span asp-validation-for="Etablissement" class="text-danger"></span>
                         </div>
                       </div>
                       <div class="m-auto d-flex flex-row justify-content-center">
                         <div class="form-group d-flex flex-row">
-                            <label class="control-label">Année d'obtention de votre dernier diplôme</label>
+                                                <label class="control-label">Année d'obtention de votre dernier diplôme<span class="text-danger">*</span></label>
                             <input type="date" asp-for="AnneeDiplome" class="form-control" />
                             <span asp-validation-for="AnneeDiplome" class="text-danger"></span>
                         </div>
@@ -237,7 +243,7 @@
                     class="multisteps-form__panel  p-4 rounded bg-white"
                     data-animation="slideHorz"
                   >
-                    <h3 class="multisteps-form__title">Expérience</h3>
+                    <h3 class="multisteps-form__title">Expérience professionnelle</h3>
                     <div class="multisteps-form__content">
                       <div class="w-75 m-auto d-flex flex-row justify-content-around text-center">
                         <label class="control-label">Avez-vous une expérience professionnelles ?</label>
@@ -253,6 +259,13 @@
                           <span asp-validation-for="SiOuiExperience" class="text-danger"></span>
                         </div>
                       </div>
+                    <div class="m-auto d-flex flex-row justify-content-center pt-4">
+                        <div class="form-group w-75">
+                            <label class="control-label">Quel domaine ??</label>
+                            <input asp-for="Domaine" class="form-control" />
+                            <span asp-validation-for="Domaine" class="text-danger"></span>
+                        </div>
+                    </div>
                       <div class="row">
                         <div class="button-row d-flex mt-4 col-12">
                           <button
@@ -317,17 +330,43 @@
 
 
 
-    <!-- partial -->
+    
     <script>
+
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const inputFields = document.querySelectorAll('.nameInputs');
+    //     const nextButton = document.querySelector('#btnNext');
+
+        
+    //     nextButton.disabled = true;
+
+    //     inputFields.forEach(inputField => {
+    //         inputField.addEventListener('input', () => {
+                
+    //             nextButton.disabled = !areAllInputFieldsNotEmpty();
+    //         });
+    //     });
+
+    //     nextButton.addEventListener('click', () => {
+    //         if (nextButton.disabled) {
+    //             alert('Please fill in all input fields.');
+    //         }
+    //     });
+
+    //     function areAllInputFieldsNotEmpty() {
+    //         for (const inputField of inputFields) {
+    //             if (inputField.value.trim() === '') {
+    //                 return false;
+    //             }
+    //         }
+    //         return true;
+    //     }
+    // });
+
+
 function submitForm(form) {
-  // Get all input elements with the class name "nameInputs".
-  const inputFields = document.querySelectorAll('.nameInputs');
 
-  // Check if all of the input fields are empty.
-
-    // if ($('.nameInputs').val().length === 0) { 
-    //     alert('Remplir les champs');
-    // }
+  
 
   Swal.fire({
     title: "Merci!",
@@ -353,48 +392,10 @@ function submitForm(form) {
 
 ///////////////////////
 
-    // // Get the two checkboxes
-    // const hommeCheckbox = document.querySelector('input[type="checkbox"][value="Homme"]');
-    // const femmeCheckbox = document.querySelector('input[type="checkbox"][value="Femme"]');
-
-    // // Add a click event listener to each checkbox
-    // hommeCheckbox.addEventListener('click', function () {
-    //     // If the homme checkbox is checked, uncheck the femme checkbox
-    //     if (hommeCheckbox.checked) {
-    //         femmeCheckbox.checked = false;
-    //     }
-    // });
-
-    // femmeCheckbox.addEventListener('click', function () {
-    //     // If the femme checkbox is checked, uncheck the homme checkbox
-    //     if (femmeCheckbox.checked) {
-    //         hommeCheckbox.checked = false;
-    //     }
-    // });
-
-
-    //     // Get the two checkboxes
-    // const ouiCheckbox = document.querySelector('input[type="checkbox"][value="Oui"]');
-    // const nonCheckbox = document.querySelector('input[type="checkbox"][value="Non"]');
-
-    // // Add a click event listener to each checkbox
-    // ouiCheckbox.addEventListener('click', function () {
-    //     // If the oui checkbox is checked, uncheck the non checkbox
-    //     if (ouiCheckbox.checked) {
-    //         nonCheckbox.checked = false;
-    //     }
-    // });
-
-    // nonCheckbox.addEventListener('click', function () {
-    //     // If the non checkbox is checked, uncheck the oui checkbox
-    //     if (nonCheckbox.checked) {
-    //         ouiCheckbox.checked = false;
-    //     }
-    // });
 
         /////////////////////
 
-      //DOM elements
+      
       const DOMstrings = {
         stepsBtnClass: "multisteps-form__progress-btn",
         stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
@@ -409,14 +410,14 @@ function submitForm(form) {
         stepNextBtnClass: "js-btn-next",
       };
 
-      //remove class from a set of items
+      
       const removeClasses = (elemSet, className) => {
         elemSet.forEach((elem) => {
           elem.classList.remove(className);
         });
       };
 
-      //return exect parent node of the element
+      
       const findParent = (elem, parentClass) => {
         let currentNode = elem;
 
@@ -427,17 +428,17 @@ function submitForm(form) {
         return currentNode;
       };
 
-      //get active button step number
+      
       const getActiveStep = (elem) => {
         return Array.from(DOMstrings.stepsBtns).indexOf(elem);
       };
 
-      //set all steps before clicked (and clicked too) to active
+      
       const setActiveStep = (activeStepNum) => {
-        //remove active state from all the state
+        
         removeClasses(DOMstrings.stepsBtns, "js-active");
 
-        //set picked items to active
+       
         DOMstrings.stepsBtns.forEach((elem, index) => {
           if (index <= activeStepNum) {
             elem.classList.add("js-active");
@@ -445,7 +446,7 @@ function submitForm(form) {
         });
       };
 
-      //get active panel
+      
       const getActivePanel = () => {
         let activePanel;
 
@@ -458,12 +459,12 @@ function submitForm(form) {
         return activePanel;
       };
 
-      //open active panel (and close unactive panels)
+      
       const setActivePanel = (activePanelNum) => {
-        //remove active class from all the panels
+        
         removeClasses(DOMstrings.stepFormPanels, "js-active");
 
-        //show active panel
+        
         DOMstrings.stepFormPanels.forEach((elem, index) => {
           if (index === activePanelNum) {
             elem.classList.add("js-active");
@@ -473,7 +474,7 @@ function submitForm(form) {
         });
       };
 
-      //set form height equal to current panel height
+      
       const formHeight = (activePanel) => {
         const activePanelHeight = activePanel.offsetHeight;
 
@@ -486,30 +487,30 @@ function submitForm(form) {
         formHeight(activePanel);
       };
 
-      //STEPS BAR CLICK FUNCTION
+      
       DOMstrings.stepsBar.addEventListener("click", (e) => {
-        //check if click target is a step button
+        
         const eventTarget = e.target;
 
         if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
           return;
         }
 
-        //get active button step number
+        
         const activeStep = getActiveStep(eventTarget);
 
-        //set all steps before clicked (and clicked too) to active
+        
         setActiveStep(activeStep);
 
-        //open active panel
+        
         setActivePanel(activeStep);
       });
 
-      //PREV/NEXT BTNS CLICK
+      
       DOMstrings.stepsForm.addEventListener("click", (e) => {
         const eventTarget = e.target;
 
-        //check if we clicked on `PREV` or NEXT` buttons
+        
         if (
           !(
             eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) ||
@@ -519,7 +520,7 @@ function submitForm(form) {
           return;
         }
 
-        //find active panel
+        
         const activePanel = findParent(
           eventTarget,
           `${DOMstrings.stepFormPanelClass}`
@@ -529,7 +530,7 @@ function submitForm(form) {
           activePanel
         );
 
-        //set active step and active panel onclick
+        
         if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
           activePanelNum--;
         } else {
@@ -540,13 +541,11 @@ function submitForm(form) {
         setActivePanel(activePanelNum);
       });
 
-      //SETTING PROPER FORM HEIGHT ONLOAD
+      
       window.addEventListener("load", setFormHeight, false);
 
-      //SETTING PROPER FORM HEIGHT ONRESIZE
       window.addEventListener("resize", setFormHeight, false);
 
-      //changing animation via animation select !!!YOU DON'T NEED THIS CODE (if you want to change animation type, just change form panels data-attr)
 
       const setAnimationType = (newType) => {
         DOMstrings.stepFormPanels.forEach((elem) => {
@@ -554,7 +553,7 @@ function submitForm(form) {
         });
       };
 
-      //selector onchange - changing animation
+
       const animationSelect = document.querySelector(".pick-animation__select");
 
       animationSelect.addEventListener("change", () => {
@@ -569,10 +568,6 @@ function submitForm(form) {
 
 
 
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 <script>
     

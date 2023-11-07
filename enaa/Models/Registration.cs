@@ -24,6 +24,7 @@ namespace enaa.Models
 
         [Required]
         public string? Cin { get; set; }
+        [Required]
         public string? BrancheBac { get; set; }
         public string? NiveauAcad { get; set; }
         public string? FiliereAcad { get; set; }
@@ -33,7 +34,7 @@ namespace enaa.Models
         public DateTime? AnneeDiplome { get; set; }
         public string? Experience { get; set; }
         public string? SiOuiExperience { get; set; }
-        [Required]
+        public string? Domaine { get; set; }
         public string? Ville { get; set; }
         public string? Adresse { get; set; }
         public string? Comment { get; set; }

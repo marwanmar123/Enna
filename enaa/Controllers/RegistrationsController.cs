@@ -67,7 +67,7 @@ namespace enaa.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(string cinUser, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Create(string cinUser, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Domaine,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
         {
             var emailSuccess = "Votre e-meil à été vérifié avec succés";
             var emailfake = "emailSuccess";
@@ -103,7 +103,7 @@ namespace enaa.Controllers
             }catch(Exception ex){
                 return View(registration);
             }
-            //return View();
+
         }
 
 
@@ -142,7 +142,7 @@ namespace enaa.Controllers
             return View(registration);
         }
 
-        // GET: Registrations/Edit/5
+
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null || _context.Registration == null)
@@ -160,12 +160,10 @@ namespace enaa.Controllers
 
         [Authorize(Roles = "Admin")]
 
-        // POST: Registrations/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
+        public async Task<IActionResult> Edit(string id, [Bind("Id,Nom,Prenom,Genre,DateDeN,Age,Email,Phone,Cin,BrancheBac,NiveauAcad,FiliereAcad,AutreFiliereAcad,DernierDip,Etablissement,AnneeDiplome,Experience,SiOuiExperience,Domaine,Ville,Adresse,Comment,Confirmation,RegisteredOn")] Registration registration)
         {
             if (id != registration.Id)
             {
@@ -196,7 +194,7 @@ namespace enaa.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        // GET: Registrations/Delete/5
+
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null || _context.Registration == null)
@@ -214,7 +212,7 @@ namespace enaa.Controllers
             return View(registration);
         }
 
-        // POST: Registrations/Delete/5
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

@@ -185,10 +185,6 @@
       "PackagePath": "staticwebassets\\assets\\img\\logo-footer.png"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\logo-indh-province-chichaoua.png",
-      "PackagePath": "staticwebassets\\assets\\img\\logo-indh-province-chichaoua.png"
-    },
-    {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\logo.png",
       "PackagePath": "staticwebassets\\assets\\img\\logo.png"
     },
@@ -203,22 +199,6 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\mobile.jpg",
       "PackagePath": "staticwebassets\\assets\\img\\mobile.jpg"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p1.png",
-      "PackagePath": "staticwebassets\\assets\\img\\p1.png"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p2.svg",
-      "PackagePath": "staticwebassets\\assets\\img\\p2.svg"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p3.svg",
-      "PackagePath": "staticwebassets\\assets\\img\\p3.svg"
-    },
-    {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\p4.jpeg",
-      "PackagePath": "staticwebassets\\assets\\img\\p4.jpeg"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\partenaires.jpg",
@@ -273,8 +253,24 @@
       "PackagePath": "staticwebassets\\assets\\img\\portfolio\\portfolio-details-3.jpg"
     },
     {
-      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\province-beni-mellal.png",
-      "PackagePath": "staticwebassets\\assets\\img\\province-beni-mellal.png"
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\pr1.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pr1.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\pr2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pr2.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\pr3.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pr3.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\pr4.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pr4.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\pr5.png",
+      "PackagePath": "staticwebassets\\assets\\img\\pr5.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\save.png",
@@ -347,6 +343,10 @@
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\young.png",
       "PackagePath": "staticwebassets\\assets\\img\\young.png"
+    },
+    {
+      "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\img\\young2.png",
+      "PackagePath": "staticwebassets\\assets\\img\\young2.png"
     },
     {
       "Id": "C:\\Users\\Marwan Maryo\\source\\repos\\enaa\\enaa\\wwwroot\\assets\\js\\main.js",

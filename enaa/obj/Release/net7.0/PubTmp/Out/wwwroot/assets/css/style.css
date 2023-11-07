@@ -2,7 +2,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Montserrat";
+  font-family: "Montserrat" !important;
   color: #444444;
   padding: 0;
   margin: 0;
@@ -41,10 +41,10 @@ a:hover {
   line-height: 0;
 }
 
-.back-to-top:hover {
-  background: #fff;
-  color: black;
-}
+    .back-to-top:hover {
+        background: #95C041;
+        color: black;
+    }
 
 .back-to-top.active {
   visibility: visible;
@@ -92,6 +92,12 @@ a:hover {
 
 #header .logo img {
   max-height: 40px;
+}
+
+@media (max-width: 700px) {
+    #header{
+        padding:12px;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -244,7 +250,7 @@ a:hover {
 */
 .mobile-nav-toggle {
   color: #111111;
-  font-size: 28px;
+  font-size: 45px;
   cursor: pointer;
   display: none;
   line-height: 0;
@@ -350,16 +356,25 @@ a:hover {
   color: #9cc943;
 }
 
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/affiche_H.jpg") top center no-repeat;
+  background: url("../img/jeunes.jpg") top center no-repeat;
   background-size: cover;
   position: relative;
-  padding-top: 82px;
+  padding-top: 5%;
+}
+.hero-split {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:100%;
+    height:80%;
+    margin:auto;
 }
 #hero-register {
   width: 100%;
@@ -394,13 +409,14 @@ a:hover {
 #hero p {
   color: #adadad;
   margin: 10px 0 0 0;
-  font-size: 19px;
-  width: 70%;
+  font-size: 1.3vw;
+  width: 90%;
+  height: 70%;
 }
 
 #hero .btn-get-started {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1vw;
   letter-spacing: 1px;
   display: inline-block;
   padding: 10px 30px;
@@ -419,7 +435,7 @@ a:hover {
 
 #hero .btn-contact {
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1vw;
   letter-spacing: 1px;
   display: inline-block;
   padding: 10px 40px;
@@ -523,13 +539,21 @@ a:hover {
   .hero-img {
     display: none;
   }
+    #hero .btn-get-started{
+        font-size:10px;
+    }
+    #hero .btn-contact{
+        font-size:10px;
+    }
 }
 
 @media (max-height: 500px) {
   #hero {
     height: 120vh;
   }
+
 }
+
 
 .mouse {
   width: 50px;
@@ -537,7 +561,7 @@ a:hover {
   border: 3px solid #b7b7b7;
   border-radius: 60px;
   position: relative;
-  top: -9em;
+  top: -23vh;
   &::before {
     content: "";
     width: 12px;
@@ -670,118 +694,11 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Tabs
---------------------------------------------------------------*/
-/* .tabs .nav-tabs {
-  border: 0;
-}
-
-.tabs .nav-link {
-  border: 1px solid #b9b9b9;
-  padding: 15px;
-  transition: 0.3s;
-  color: #111111;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.tabs .nav-link i {
-  padding-right: 15px;
-  font-size: 48px;
-}
-
-.tabs .nav-link h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0;
-}
-
-.tabs .nav-link:hover {
-  color: #1b675a;
-}
-
-.tabs .nav-link.active {
-  background: #1b675a;
-  color: #fff;
-  border-color: #1b675a;
-}
-
-@media (max-width: 768px) {
-  .tabs .nav-link i {
-    padding: 0;
-    line-height: 1;
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 575px) {
-  .tabs .nav-link {
-    padding: 15px;
-  }
-
-  .tabs .nav-link i {
-    font-size: 24px;
-  }
-}
-
-.tabs .tab-content {
-  margin-top: 30px;
-}
-
-.tabs .tab-pane h3 {
-  font-weight: 600;
-  font-size: 26px;
-}
-
-.tabs .tab-pane ul {
-  list-style: none;
-  padding: 0;
-}
-
-.tabs .tab-pane ul li {
-  padding-bottom: 10px;
-}
-
-.tabs .tab-pane ul i {
-  font-size: 20px;
-  padding-right: 4px;
-  color: #1b675a;
-}
-
-.tabs .tab-pane p:last-child {
-  margin-bottom: 0;
-} */
-
-/*--------------------------------------------------------------
-# Services
+# 
 --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Portfolio
---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Testimonials
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Pricing
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Frequently Asked Questions
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Team
---------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Contact
@@ -823,6 +740,7 @@ section {
   .contact-iframe {
     width: 100%;
     height: 26em;
+    margin-bottom:1em;
   }
   .contact-data {
     width: 100%;
@@ -858,45 +776,50 @@ section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom:1em;
 }
 .enaa-corner1 {
-  width: 9vw;
-  height: 9vh;
-  align-self: center;
+    width: 9vw;
+    height: 9vh;
+    align-self: start;
+    width: 15%;
+    margin-top:2.5em;
 }
 .enaa-corner2 {
-  width: 9vw;
-  height: 9vh;
-  transform: rotateY(180deg);
-  align-self: center;
+    width: 9vw;
+    height: 9vh;
+    transform: rotateY(180deg);
+    align-self: start;
+    width: 15%;
+    margin-top: 2.5em;
 }
 .enaa-Text {
   text-align: center;
-  padding: 2em;
+  padding: 2em 2em 2em 2em;
 }
 .enaa-content-register {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 30%;
-  margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 35%;
+    margin: auto;
 }
 .enaa-corner1-register {
   width: 3vw;
   height: 6vh;
-  align-self: flex-end;
+  align-self: center;
 }
 .enaa-corner2-register {
   width: 3vw;
   height: 6vh;
   transform: rotateY(180deg);
-  align-self: flex-end;
+  align-self: center;
 }
 .enaa-Text-register {
-  text-align: center;
-  padding: 3em 0.5em 0 0.5em;
-  color: #fff;
-  font-size:3em;
+    text-align: center;
+    color: #fff;
+    font-size: 3vw;
+    margin: inherit;
 }
 .enaa-parties {
   display: flex;
@@ -931,11 +854,24 @@ section {
     width: 90%;
     margin: 0 auto;
   }
-  .enaa-parties {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
+  
+}
+
+@media (max-width :900px){
+    .enaa-parties {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .enaa-corner1 {
+        align-self: center;
+        margin-top: 0em;
+    }
+
+    .enaa-corner2 {
+        align-self: center;
+        margin-top: 0em;
+    }
 }
 
 /*------------------------------------
@@ -1221,6 +1157,7 @@ ul ul a {
   color: #fff;
   font-weight: bold;
   width: 80%;
+  font-size:95%;
   margin: auto;
   padding: 10px;
 }
@@ -1277,29 +1214,26 @@ ul ul a {
 }
 
 .flip-card-back {
-  background: linear-gradient(to right, #1b675a, #18d26e);
-  color: white;
-  transform: rotateY(180deg);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+    background: linear-gradient(to right, #1b675a, #18d26e);
+    color: white;
+    transform: rotateY(180deg);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1em;
 }
 
-.flip-card-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: auto;
-}
+    .flip-card-back img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        margin: auto;
+    }
 
-@media (max-width: 768px) {
-  .Flip-content h3 {
-    font-weight: 100 !important;
-  }
-}
+
 
 .flip-card2 {
   background-color: transparent;
@@ -1361,15 +1295,18 @@ ul ul a {
 }
 
 .flip-card-back2 {
-  background: linear-gradient(to right, #1b675a, #18d26e);
-  color: white;
-  transform: rotateY(180deg);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
+    background: linear-gradient(to right, #1b675a, #18d26e);
+    color: white;
+    transform: rotateY(180deg);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1em;
 }
+
+
 
 .flip-card-back2 img {
   width: 100%;
@@ -1383,9 +1320,17 @@ ul ul a {
   .Flip-conten2t h3 {
     font-weight: 100 !important;
   }
+    .flip-card-back2 h3, p {
+        font-size: 75%;
+    }
+    .flip-card-back h3, p {
+        font-size: 75%;
+    }
 }
+
+
 /*--------------------------------------------------------------
-# Clients
+# jeunes
 --------------------------------------------------------------*/
 #Jeunes {
   padding: 1em !important;
@@ -1416,7 +1361,7 @@ ul ul a {
 }
 .partenaire-custom-section {
   height: 16em;
-  background: #323e48;
+  background: #cec7c7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1424,6 +1369,16 @@ ul ul a {
   color: #fff;
 }
 
+@media (max-width: 768px) {
+    .partenaire-custom-section-img img {
+        width: 3.5em !important;
+        height: 3.5em !important;
+    }
+    .partenaire-custom-section-img {
+        padding:0 1em !important;
+    }
+}
+
 /*--------------------------------------------------------------
-# ENd Clients
+# ENd jeunes
 --------------------------------------------------------------*/
